@@ -1,42 +1,41 @@
+import * as React from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import styled from "styled-components"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+import Container from "./Container"
+
+const HeaderComponent = styled.header`
+  alignitems: center;
+  background: #210305;
+  display: flex;
+  height: 76px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+`
+const HeaderImage = styled.img`
+  transition: 0.5s ease;
+  width: 36px;
+
+  &:hover,
+  &:focus {
+    width: 45px;
+  }
+`
+
+const Header = () => (
+  <HeaderComponent>
+    <Container>
+      <Link title="Nossa homepage" to="/">
+        <HeaderImage
+          alt="Anne Schuartz"
+          src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/logo.svg"
+        />
+      </Link>
+    </Container>
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+  </HeaderComponent>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
