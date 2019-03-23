@@ -43,20 +43,8 @@ class MuitoAmor extends React.Component {
               sempre, você nos surpreendeu com os seus lindos e maravilhosos
               bolos, estavam perfeitos!” Gustavo Rodrigues, Curitiba.
             </P>
-            <GreenButton
-              title="Fazer pedido"
-              tabIndex={0}
-              onClick={this.toggleModalEncomendasState}
-            >
-              Fazer pedido
-            </GreenButton>
           </Container>
         </MuitoAmorComponent>
-        {isModalEncomendasOpened && (
-          <ModalEncomendas
-            toggleModalEncomendas={this.toggleModalEncomendasState}
-          />
-        )}
       </React.Fragment>
     )
   }

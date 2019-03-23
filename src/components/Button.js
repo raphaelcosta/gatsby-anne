@@ -13,6 +13,12 @@ export const Button = styled.button`
   cursor: pointer;
   transition: all 0.5s ease;
 
+  ${props =>
+    props.cta &&
+    `
+      text-decoration: underlined;
+    `}
+
   &:hover,
   &:focus {
     background: rgba(201, 79, 70, 0.8);

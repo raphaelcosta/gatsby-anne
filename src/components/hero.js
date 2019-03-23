@@ -33,8 +33,9 @@ class Hero extends React.Component {
             <P>BEM-VINDO</P>
             <H1>Um dia com doçura, é um dia com mais amor</H1>
             <Button
-              onClick={e => {
-                e.preventDefault()
+              onClick={() => {
+                window.location.href =
+                  "https://s3-sa-east-1.amazonaws.com/anneschuartz/site/cardapio-digital-pascoa_compressed.pdf"
               }}
             >
               Ver cardápio

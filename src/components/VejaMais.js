@@ -11,8 +11,18 @@ const VejaMaisComponent = styled.section`
     h2 {
       margin-bottom: 10px;
     }
+    .swiper-slide {
+      width: 150px !important;
+    }
   }
   padding: 90px 0;
+`
+const SwiperContainer = styled.div`
+  max-width: 100%;
+  margin: 30px 0 40px;
+  @media screen and (max-width: 600px) {
+    max-width: calc(100vw - 40px);
+  }
 `
 const P = styled.p`
   color: #624244
@@ -25,15 +35,41 @@ const VejaMais = () => {
       <Container>
         <h2>Veja mais</h2>
         <P>Explore o nosso cardápio</P>
-        <div style={{ maxWidth: "100%", margin: "30px 0 40px" }}>
+        <SwiperContainer>
           <Swiper>
-            <div>Slide 1</div>
-            <div>Slide 2</div>
-            <div>Slide 3</div>
-            <div>Slide 4</div>
-            <div>Slide 5</div>
+            <div style={{ width: 120 }}>
+              <a href="https://www.instagram.com/anneschuartz/">
+                <img
+                  style={{ width: 120 }}
+                  src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/carousell/ver+no+instagram.png"
+                />
+              </a>
+            </div>
+            <div style={{ width: 120 }}>
+              <a href="https://www.instagram.com/anneschuartz/">
+                <img
+                  style={{ width: 120 }}
+                  src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/carousell/bolos.png"
+                />
+              </a>
+            </div>
+            <div>
+              <a href="https://www.instagram.com/anneschuartz/">
+                <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/carousell/tortas.png" />
+              </a>
+            </div>
+            <div>
+              <a href="https://www.instagram.com/anneschuartz/">
+                <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/carousell/brigadeiros.png" />
+              </a>
+            </div>
+            <div>
+              <a href="https://www.instagram.com/anneschuartz/">
+                <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/carousell/lembrancinhas.png" />
+              </a>
+            </div>
           </Swiper>
-        </div>
+        </SwiperContainer>
         <DimWave />
       </Container>
     </VejaMaisComponent>

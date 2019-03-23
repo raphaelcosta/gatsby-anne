@@ -13,6 +13,7 @@ const HeaderComponent = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 20;
 `
 const HeaderImage = styled.img`
   transition: 0.5s ease;
