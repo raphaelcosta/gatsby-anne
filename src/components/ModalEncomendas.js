@@ -3,6 +3,10 @@ import { Portal } from "react-portal"
 import styled from "styled-components"
 
 import { GreenButton } from "./Button"
+import {
+  ProdutosPascoaCardapioNormal,
+  ProdutosPascoaCardapioCorporativo,
+} from "./Produtos"
 
 const Overlay = styled.div`
   align-items: center;
@@ -147,6 +151,7 @@ class ModalEncomendas extends React.Component {
   state = {
     products: [{ name: "", value: "" }],
     pedido: "",
+    totalValue: 0.0,
   }
 
   handleClickOutside() {
@@ -162,13 +167,19 @@ class ModalEncomendas extends React.Component {
   }
 
   handleSelect = e => {
-    const value = e.target.value
-    this.setState(prevState => ({ pedido: `${prevState.pedido} ${value},` }))
+    const produtoName = e.target.value
+    const produto = ProdutosPascoaCardapioNormal.filter(produto => {
+      return produto.name === produtoName
+    })
+
+    debugger
+
+    //this.setState(prevState => ({ pedido: `${prevState.pedido} ${produtoName},` }))
   }
 
   render() {
     const { toggleModalEncomendas } = this.props
-    const { products } = this.state
+    const { products, totalValue } = this.state
     return (
       <Portal closeOnOutsideClick closeOnEsc>
         <Overlay onClick={toggleModalEncomendas} />
@@ -194,6 +205,7 @@ class ModalEncomendas extends React.Component {
                 <CustomSelect>
                   <select onChange={e => this.handleSelect(e)}>
                     <option defaultValue>Escolha um produto</option>
+<<<<<<< HEAD
                     {/* <optgroup label="Bolos cardápio normal">
                       <option value="Bolo Frutas R$ 110,00">
                         Bolo Frutas R$ 110,00
@@ -346,98 +358,35 @@ class ModalEncomendas extends React.Component {
                         Lembrancinhas Saquinho mini cookies 3 unds. R$ 15,00
                       </option>
                     </optgroup> */}
+=======
+>>>>>>> Init
                     <optgroup label="Cardápio Páscoa Normal">
-                      <option value="Páscoa - Ovo Caramelo flor de Sal R$ 98,00">
-                        Páscoa - Ovo Caramelo flor de Sal R$ 98,00
-                      </option>
-                      <option value="Páscoa - Ovo Ninho com nutella R$ 95,00">
-                        Páscoa - Ovo Ninho com nutella R$ 95,00
-                      </option>
-                      <option value="Páscoa - Ovo Brownie R$ 89,00">
-                        Páscoa - Ovo Brownie R$ 89,00
-                      </option>
-                      <option value="Páscoa - Ovo Clássico R$ 82,00">
-                        Páscoa - Ovo Clássico R$ 82,00
-                      </option>
-                      <option value="Páscoa - Ovo Laranjinha R$ 95,00">
-                        Páscoa - Ovo Laranjinha R$ 95,00
-                      </option>
-                      <option value="Páscoa - Nuts R$ 89,00">
-                        Páscoa - Nuts R$ 89,00
-                      </option>
-                      <option value="Páscoa Ovo - Nuts R$ 89,00">
-                        Páscoa - Ovo Nuts R$ 89,00
-                      </option>
-                      <option value="Páscoa Ovo - Cookies and Cream R$ 89,00">
-                        Páscoa - Ovo Cookies and Cream R$ 89,00
-                      </option>
-                      <option value="Páscoa Ovo - “Viva” por Anne Schuartz R$ 110,00">
-                        Páscoa - Ovo “Viva” por Anne Schuartz R$ 110,00
-                      </option>
-                      <option value="Páscoa - Trio de mini ovos R$ 44,00">
-                        Páscoa - Trio de mini ovos R$ 44,00
-                      </option>
-                      <option value="Páscoa - Para presentear Caixinha brigadeiros 2 unds. R$ 12,00">
-                        Páscoa - Para presentear Caixinha brigadeiros 2 unds. R$
-                        12,00
-                      </option>
-                      <option value="Páscoa - Para presentear Caixinha brigadeiros 4 unds. R$ 23,00">
-                        Páscoa - Para presentear Caixinha brigadeiros 4 unds. R$
-                        23,00
-                      </option>
-                      <option value="Páscoa - Para presentear Potinho de bolo de cenoura R$ 24,00">
-                        Páscoa - Para presentear Potinho de colo de cenoura R$
-                        24,00
-                      </option>
-                      <option value="Páscoa - Para presentear Sandubinha de brownie	R$ 15,90">
-                        Páscoa - Para presentear Sandubinha de brownie R$ 15,90
-                      </option>
-                      <option value="Páscoa - Para presentear Latinha de palha italiana	200gr R$ 45,00">
-                        Páscoa - Para presentear Latinha de palha italiana 200gr
-                        R$ 45,00
-                      </option>
-                      <option value="Páscoa - Para reunir a família Bolo de cenoura páscoa P R$ 89,00">
-                        Páscoa - Para reunir a família Bolo de cenoura páscoa P
-                        R$ 89,00
-                      </option>
-                      <option value="Páscoa - Para reunir a família Bolo de cenoura páscoa M R$ 109,00">
-                        Páscoa - Para reunir a família Bolo de cenoura páscoa M
-                        R$ 109,00
-                      </option>
-                      <option value="Páscoa - Para reunir a família Bolo de cenoura páscoa G 129,00">
-                        Páscoa - Para reunir a família Bolo de cenoura páscoa G
-                        129,00
-                      </option>
+                      {ProdutosPascoaCardapioNormal.map(produto => (
+                        <option key={produto.name} value={produto.name}>
+                          {`Páscoa - ${produto.name} R$${produto.price}`}
+                        </option>
+                      ))}
                     </optgroup>
                     <optgroup label="Cardápio Páscoa Corporativo">
-                      <option value="Páscoa Corporativo - Trio de mini ovos	R$ 45,00">
-                        Páscoa Corporativo - Trio de mini ovos R$ 45,00
-                      </option>
-                      <option value="Páscoa Corporativo - Caixinha brigadeiros 2 unds. R$ 14,00">
-                        Páscoa Corporativo - Caixinha brigadeiros 2 unds. R$
-                        14,00
-                      </option>
-                      <option value="Páscoa Corporativo - Caixinha brigadeiros 4 unds. R$ 25,00">
-                        Páscoa Corporativo - Caixinha brigadeiros 4 unds. R$
-                        25,00
-                      </option>
-                      <option value="Páscoa Corporativo - Potinho de bolo de cenoura R$ 24,00">
-                        Páscoa Corporativo - Potinho de bolo de cenoura R$ 24,00
-                      </option>
-                      <option value="Páscoa Corporativo - Sandubinha de brownie R$ 15,90">
-                        Páscoa Corporativo - Sandubinha de brownie R$ 15,90
-                      </option>
-                      <option value="Páscoa Corporativo - Latinha de palha italiana 150gr R$ 45,00">
-                        Páscoa Corporativo - Latinha de palha italiana 150gr R$
-                        45,00
-                      </option>
+                      {ProdutosPascoaCardapioNormal.map(produto => (
+                        <option
+                          key={produto.name}
+                          value={`Páscoa Corporativo - ${produto.name} R$${
+                            produto.price
+                          }`}
+                        >
+                          {`Páscoa Corporativo - ${produto.name} R$${
+                            produto.price
+                          }`}
+                        </option>
+                      ))}
                     </optgroup>
                   </select>
                 </CustomSelect>
               ))}
               <OrderDetails>
                 <p>Detalhamento do pedido</p>
-                <p>R$0.00</p>
+                <p>{`R$ ${totalValue}`}</p>
               </OrderDetails>
             </SelectWrapper>
             <AddMore onClick={this.addNewProduct}>
