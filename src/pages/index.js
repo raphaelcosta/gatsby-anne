@@ -41,9 +41,6 @@ const IndexPage = () => (
 
     gtag('config', 'AW-814054608');`}
       </script>
-      <script>
-        {`gtag('event', 'conversion', {'send_to': 'AW-814054608/Xm6_CI_K5H4Q0PmVhAM'});`}
-      </script>
     </Helmet>
     <SEO
       title="Encomenda de Doces, Tortas e Bolos | Anne Schuartz"

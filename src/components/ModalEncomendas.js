@@ -445,6 +445,9 @@ class ModalEncomendas extends React.Component {
               <GreenButton
                 onClick={() => {
                   window.fbq("track", "Contact")
+                  window.gtag("event", "conversion", {
+                    send_to: "AW-814054608/Xm6_CI_K5H4Q0PmVhAM",
+                  })
                   window.location.href = `https://wa.me/5541995958787?text=Oi,%20Anne!%20Gostaria%20de%20fazer%20um%20pedido:%20${
                     this.state.pedido
                   }`
