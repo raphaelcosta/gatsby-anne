@@ -1,6 +1,8 @@
 import * as React from "react"
 import { Portal } from "react-portal"
+import enhanceWithClickOutside from "react-click-outside"
 import styled from "styled-components"
+
 import { GreenButton } from "./Button"
 
 const Overlay = styled.div`
@@ -148,6 +150,11 @@ class ModalEncomendas extends React.Component {
     pedido: "",
   }
 
+  handleClickOutside() {
+    const { toggleModalEncomendas } = this.props
+    toggleModalEncomendas()
+  }
+
   addNewProduct = e => {
     e.preventDefault()
     this.setState(prevState => ({
@@ -183,7 +190,7 @@ class ModalEncomendas extends React.Component {
               {products.map((product, index) => (
                 <CustomSelect>
                   <select onChange={e => this.handleSelect(e)}>
-                    <option selected>Escolha um produto</option>
+                    <option defaultValue>Escolha um produto</option>
                     {/* <optgroup label="Bolos cardápio normal">
                       <option value="Bolo Frutas R$ 110,00">
                         Bolo Frutas R$ 110,00
@@ -461,4 +468,4 @@ class ModalEncomendas extends React.Component {
   }
 }
 
-export default ModalEncomendas
+export default enhanceWithClickOutside(ModalEncomendas)
