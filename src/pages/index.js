@@ -41,6 +41,20 @@ const IndexPage = () => (
 
     gtag('config', 'AW-814054608');`}
       </script>
+      <script>
+        {`function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-814054608/Xm6_CI_K5H4Q0PmVhAM',
+            'event_callback': callback
+        });
+        return false;
+      }`}
+      </script>
     </Helmet>
     <SEO
       title="Encomenda de Doces, Tortas e Bolos | Anne Schuartz"
