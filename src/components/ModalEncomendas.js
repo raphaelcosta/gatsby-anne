@@ -184,7 +184,11 @@ class ModalEncomendas extends React.Component {
                 toggleModalEncomendas()
               }}
             >
-              <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/close.svg" />
+              <img
+                alt="fechar"
+                title="fechar"
+                src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/close.svg"
+              />
             </CloseButton>
             <SelectWrapper>
               {products.map((product, index) => (
@@ -438,7 +442,11 @@ class ModalEncomendas extends React.Component {
               </OrderDetails>
             </SelectWrapper>
             <AddMore onClick={this.addNewProduct}>
-              <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/plus.svg" />
+              <img
+                alt="adicionar"
+                title="adicionar"
+                src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/plus.svg"
+              />
               <p>Adicionar mais</p>
             </AddMore>
             <div

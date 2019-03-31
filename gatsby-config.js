@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Encomenda de Doces, Tortas e Bolos | Anne Schuartz`,
+    title: "",
     description: `A melhor Sweet Maker de Curitiba. Aqui você pode encomendar on-line doces, tortas e bolos feitos com muito amor.`,
     author: `Rodrigo García`,
   },
@@ -35,7 +35,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        //icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/icon.png`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

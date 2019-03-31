@@ -1,8 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
+
 import Container from "./Container"
-import { GreenButton } from "./Button"
-import ModalEncomendas from "./ModalEncomendas"
+
 const MuitoAmorComponent = styled.section`
   background: url("https://s3-sa-east-1.amazonaws.com/anneschuartz/pattern.png")
     repeat center center;
@@ -21,33 +21,19 @@ const P = styled.p`
   max-width: 520px;
 `
 
-class MuitoAmor extends React.Component {
-  state = {
-    isModalEncomendasOpened: false,
-  }
-
-  toggleModalEncomendasState = () => {
-    this.setState(prevState => ({
-      isModalEncomendasOpened: !prevState.isModalEncomendasOpened,
-    }))
-  }
-  render() {
-    const { isModalEncomendasOpened } = this.state
-    return (
-      <React.Fragment>
-        <MuitoAmorComponent>
-          <Container>
-            <h2>Dedicação e muito amor</h2>
-            <P>
-              "Anne, obrigada pela atenção e dedicação do seu serviço. Como
-              sempre, você nos surpreendeu com os seus lindos e maravilhosos
-              bolos, estavam perfeitos!” Gustavo Rodrigues, Curitiba.
-            </P>
-          </Container>
-        </MuitoAmorComponent>
-      </React.Fragment>
-    )
-  }
-}
+const MuitoAmor = () => (
+  <React.Fragment>
+    <MuitoAmorComponent>
+      <Container>
+        <h2>Dedicação e muito amor</h2>
+        <P>
+          "Anne, obrigada pela atenção e dedicação do seu serviço. Como sempre,
+          você nos surpreendeu com os seus lindos e maravilhosos bolos, estavam
+          perfeitos!” Gustavo Rodrigues, Curitiba.
+        </P>
+      </Container>
+    </MuitoAmorComponent>
+  </React.Fragment>
+)
 
 export default MuitoAmor
