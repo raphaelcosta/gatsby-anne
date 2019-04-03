@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Portal } from "react-portal"
-import enhanceWithClickOutside from "react-click-outside"
 import styled from "styled-components"
 
 import { GreenButton } from "./Button"
@@ -458,6 +457,7 @@ class ModalEncomendas extends React.Component {
               }}
             >
               <GreenButton
+                whats
                 onClick={() => {
                   window.fbq("track", "Contact")
                   window.gtag_report_conversion()
@@ -476,4 +476,4 @@ class ModalEncomendas extends React.Component {
   }
 }
 
-export default enhanceWithClickOutside(ModalEncomendas)
+export default ModalEncomendas

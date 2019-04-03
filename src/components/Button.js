@@ -12,12 +12,25 @@ export const Button = styled.button`
   box-shadow: 0 3px 14px 0 rgba(157, 157, 157, 0.4);
   cursor: pointer;
   transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${props => props.cta && `text-decoration: underlined;`}
 
   ${props =>
-    props.cta &&
-    `
-      text-decoration: underlined;
-    `}
+    props.whats &&
+    `&::before {
+      font-family: 'Anne';
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      content: '\\e904';
+      font-weight: 400;
+      margin-right: 5px;
+      font-size: 24px;
+    }`}
 
   &:hover,
   &:focus {

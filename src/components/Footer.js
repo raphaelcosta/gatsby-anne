@@ -1,10 +1,12 @@
 import * as React from "react"
 import styled from "styled-components"
 import Container from "./Container"
+import Icon from "./Icon"
 
 const FooterComponent = styled.footer`
   padding: 70px 0;
   display: flex;
+  flex-direction: column;
   background: url("https://s3-sa-east-1.amazonaws.com/anneschuartz/site/pink_bg.png")
     repeat center center;
   > div {
@@ -15,6 +17,41 @@ const FooterComponent = styled.footer`
     @media (max-width: 700px) {
       flex-direction: column;
       align-items: flex-start;
+    }
+  }
+`
+
+const SocialNetworks = styled.div`
+  max-width: 160px;
+  border: solid 1px #380609;
+  border-radius: 4px;
+  padding: 10px 15px;
+  flex-direction: row !important;
+  margin-top: 55px !important;
+
+  a {
+    display: flex;
+    text-decoration: none;
+    color: #380609;
+
+    &:first-of-type {
+      span {
+        border-right: 1px solid #380609;
+        padding-right: 15px;
+      }
+    }
+
+    &:last-of-type {
+      span {
+        border-right: 1px solid #380609;
+        padding-right: 15px;
+      }
+    }
+  }
+
+  span {
+    &:before {
+      margin-right: 0;
     }
   }
 `
@@ -35,6 +72,9 @@ const ListElement = styled.dd`
   font: 14px Muli, Helvetica, sans-serif;
   color: #160203;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+
   a {
     text-decoration: none;
     color: #160203;
@@ -65,6 +105,7 @@ const Footer = () => (
           <dl>
             <ListTitle>Contato</ListTitle>
             <ListElement>
+              <Icon mail />
               <a
                 title="email"
                 tabIndex={0}
@@ -75,6 +116,7 @@ const Footer = () => (
               </a>
             </ListElement>
             <ListElement>
+              <Icon whats />
               <a
                 title="Envie-nos uma mensagem via whatsapp"
                 tabIndex={0}
@@ -85,6 +127,7 @@ const Footer = () => (
               </a>
             </ListElement>
             <ListElement>
+              <Icon phone />
               <a
                 title="Ligue para a Anne"
                 href="tel:4137798785"
@@ -125,6 +168,23 @@ const Footer = () => (
           </dl>
         </div>
       </Container>
+      <SocialNetworks>
+        <a
+          tabIndex={0}
+          title="Visite o nosso instagram"
+          href="https://www.instagram.com/anneschuartz/"
+        >
+          <Icon insta />
+        </a>
+        <a
+          tabIndex={0}
+          title="Visite o nosso facebook"
+          href="https://www.facebook.com/anneschuartz/"
+        >
+          <Icon face />
+        </a>
+        <Icon spotify />
+      </SocialNetworks>
     </FooterComponent>
     <SubFooter />
   </React.Fragment>

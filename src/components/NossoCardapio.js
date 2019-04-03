@@ -46,6 +46,7 @@ class NossoCardapio extends React.Component {
             </P>
             <Button
               cta
+              whats
               title="Fazer pedido"
               tabIndex={0}
               onClick={this.toggleModalEncomendasState}
