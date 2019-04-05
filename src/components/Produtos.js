@@ -22,7 +22,7 @@ export const ProdutosPascoaCardapioNormal = [
   {
     name: "Ovo Laranjinha",
     category: "Páscoa",
-    price: 95.0,
+    price: 95.00,
   },
   {
     name: "Ovo Nuts",
@@ -100,7 +100,7 @@ export const ProdutosPascoaCardapioCorporativo = [
   {
     name: "Caixinha brigadeiros 4 unds.",
     category: "Páscoa Corporativo",
-    price: 25.0,
+    price: 25.00,
   },
   {
     name: "Potinho de bolo de cenoura",
