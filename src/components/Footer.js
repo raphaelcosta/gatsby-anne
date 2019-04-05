@@ -43,8 +43,8 @@ const SocialNetworks = styled.div`
 
     &:last-of-type {
       span {
-        border-right: 1px solid #380609;
-        padding-right: 15px;
+        border-left: 1px solid #380609;
+        padding-left: 15px;
       }
     }
   }
@@ -136,28 +136,6 @@ const Footer = () => (
                 (41) 3779-8785
               </a>
             </ListElement>
-            <ListElement>
-              {/* <a
-                title="Instagram"
-                rel="noopener noreferrer"
-                tabIndex={0}
-                href="https://www.instagram.com/anneschuartz/"
-                target="_blank"
-              />
-              <a
-                title="Facebook"
-                rel="noopener noreferrer"
-                tabIndex={0}
-                href="https://www.facebook.com/anneschuartz/"
-                target="_blank"
-              />
-              <a
-                title="spotify playlist"
-                rel="noopener noreferrer"
-                tabIndex={0}
-                href="https://open.spotify.com/user/12180965366/playlist/7hesivtrFtrHpnkTyti5Ox?si=KRLe-dzHQGOrdR7LkM128A"
-              /> */}
-            </ListElement>
           </dl>
         </div>
         <div>
@@ -183,7 +161,13 @@ const Footer = () => (
         >
           <Icon face />
         </a>
-        <Icon spotify />
+        <a
+          tabIndex={0}
+          title="Escute o nosso playlist"
+          href="https://open.spotify.com/playlist/7hesivtrFtrHpnkTyti5Ox"
+        >
+          <Icon spotify />
+        </a>
       </SocialNetworks>
     </FooterComponent>
     <SubFooter />
