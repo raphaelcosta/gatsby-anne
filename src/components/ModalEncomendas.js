@@ -190,7 +190,14 @@ class ModalEncomendas extends React.Component {
       return `${produtoCatagory} - ${product.name} R$${finalProductValue}`
     })
 
-    const pedido = pedidoString.join(", ")
+    const finalValue = finalPrice
+      .toFixed(2)
+      .toString()
+      .replace(/\./g, ",")
+
+    const pedido = pedidoString
+      .join(", ")
+      .concat(` Valor total do pedido: ${finalValue}`)
 
     this.setState(prevState => ({
       products: products,
