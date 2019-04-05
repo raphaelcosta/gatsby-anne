@@ -166,20 +166,47 @@ class ModalEncomendas extends React.Component {
     }))
   }
 
-  handleSelect = e => {
+  handleSelect = (e, index) => {
     const produtoName = e.target.value
-    const produto = ProdutosPascoaCardapioNormal.filter(produto => {
+    const produtos = ProdutosPascoaCardapioNormal.concat(
+      ProdutosPascoaCardapioCorporativo
+    )
+    const produto = produtos.filter(produto => {
       return produto.name === produtoName
     })
 
-    debugger
+    const produtoPrice = produto["0"] ? produto["0"].price : 0
+    const produtoCatagory = produto["0"] ? produto["0"].category : ""
 
-    //this.setState(prevState => ({ pedido: `${prevState.pedido} ${produtoName},` }))
+    const products = this.state.products
+    products[index] = { name: produtoName, value: produtoPrice }
+
+    const finalPrice = products.reduce((acc, currentValue) => {
+      return acc + currentValue.value
+    }, 0)
+
+    const pedidoString = products.map(product => {
+      const finalProductValue = product.value.toString().replace(/\./g, ",")
+      return `${produtoCatagory} - ${product.name} R$${finalProductValue}`
+    })
+
+    const pedido = pedidoString.join(", ")
+
+    this.setState(prevState => ({
+      products: products,
+      totalValue: finalPrice,
+      pedido: pedido,
+    }))
   }
 
   render() {
     const { toggleModalEncomendas } = this.props
     const { products, totalValue } = this.state
+    const finalValue = totalValue
+      .toFixed(2)
+      .toString()
+      .replace(/\./g, ",")
+
     return (
       <Portal closeOnOutsideClick closeOnEsc>
         <Overlay onClick={toggleModalEncomendas} />
@@ -203,181 +230,29 @@ class ModalEncomendas extends React.Component {
             <SelectWrapper>
               {products.map((product, index) => (
                 <CustomSelect>
-                  <select onChange={e => this.handleSelect(e)}>
-                    <option defaultValue>Escolha um produto</option>
-<<<<<<< HEAD
-                    {/* <optgroup label="Bolos cardápio normal">
-                      <option value="Bolo Frutas R$ 110,00">
-                        Bolo Frutas R$ 110,00
-                      </option>
-                      <option value="Bolo Brigadeiro Tradicional R$ 100,00">
-                        Bolo Brigadeiro Tradicional R$ 100,00
-                      </option>
-                      <option value="Bolo Brigadeiro Especiais R$ 115,00">
-                        Bolo Brigadeiro Especiais R$ 115,00
-                      </option>
-                      <option value="Bolo Butter Cream R$ 130,00">
-                        Bolo Butter Cream R$ 130,00
-                      </option>
-                      <option value="Bolo Abacaxi com coco R$ 100,00">
-                        Bolo Abacaxi com coco R$ 100,00
-                      </option>
-                      <option value="Bolo Caramelo com Flor de Sal R$ 125,00">
-                        Bolo Caramelo com Flor de Sal R$ 125,00
-                      </option>
-                      <option value="Bolo Churros R$ 110,00">
-                        Bolo Churros R$ 110,00
-                      </option>
-                      <option value="Bolo Ninho com Uva R$ 110,00">
-                        Bolo Ninho com Uva R$ 110,00
-                      </option>
-                      <option value="Bolo Ninho com Nutella R$ 120,00">
-                        Bolo Ninho com Nutella R$ 120,00
-                      </option>
-                      <option value="Bolo Frutas R$ 110,00">
-                        Bolo Damasco c/ doce de leite R$ 120,00
-                      </option>
-                      <option value="Bolo Red Velvet R$ 120,00">
-                        Bolo Red Velvet R$ 120,00
-                      </option>
-                      <option value="Bolo Cenoura c/ brigadeiro P R$ 75,00">
-                        Bolo Cenoura c/ brigadeiro P R$ 75,00
-                      </option>
-                      <option value="Bolo Cenoura c/ brigadeiro M R$ 95,00">
-                        Bolo Cenoura c/ brigadeiro P R$ 95,00
-                      </option>
-                      <option value="Bolo Cenoura c/ brigadeiro G R$ 115,00">
-                        Bolo Cenoura c/ brigadeiro G R$ 115,00
-                      </option>
-                      <option value="Bolo Fubá c/ Goiabada P R$ 65,00">
-                        Bolo Fubá c/ Goiabada P R$ 65,00
-                      </option>
-                      <option value="Bolo Fubá c/ Goiabada M R$ 80,00">
-                        Bolo Fubá c/ Goiabada M R$ 80,00
-                      </option>
-                      <option value="Bolo Frutas R$ 110,00">
-                        Bolo Fubá c/ Goiabada G R$ 95,00
-                      </option>
-                      <option value="Bolo Limão Siciliano c/ Blue Berry P R$ 80,00">
-                        Bolo Limão Siciliano c/ Blue Berry P R$ 80,00
-                      </option>
-                      <option value="Bolo Limão Siciliano c/ Blue Berry M R$ 95,00">
-                        Bolo Limão Siciliano c/ Blue Berry M R$ 95,00
-                      </option>
-                      <option value="Bolo Limão Siciliano c/ Blue Berry G R$ 110,00">
-                        Bolo Limão Siciliano c/ Blue Berry G R$ 110,00
-                      </option>
-                      <option value="Bolo Indiano P R$ 65,00">
-                        Bolo Indiano P R$ 65,00
-                      </option>
-                      <option value="Bolo Milho c/ coco P R$ 64,00">
-                        Bolo Milho c/ coco P R$ 64,00
-                      </option>
-                      <option value="Torta Palha italiana kg R$ 100,00">
-                        Torta Palha italiana kg R$ 100,00
-                      </option>
-                      <option value="Torta Palha italiana kg c/ frutas vermelhas R$ 115,00">
-                        Torta Palha italiana kg c/ frutas vermelhas R$ 115,00
-                      </option>
-                      <option value="Torta brownie kg c/ brigadeiro R$ 120,00">
-                        Torta brownie kg c/ brigadeiro R$ 120,00
-                      </option>
-                      <option value="Torta brownie kg c/ frutas vermelhas R$ 135,00">
-                        Torta brownie kg c/ frutas vermelhas R$ 135,00
-                      </option>
-                      <option value="Brigadeiros Cento Tradicional R$ 250,00">
-                        Brigadeiros Cento Tradicional R$ 250,00
-                      </option>
-                      <option value="Brigadeiros Cento Especiais R$ 270,00">
-                        Brigadeiros Cento Especiais R$ 270,00
-                      </option>
-                      <option value="Brigadeiros Cento Finos R$ 300,00">
-                        Brigadeiros Cento Finos R$ 300,00
-                      </option>
-                      <option value="Brigadeiros Marmitinha	3 unds.	R$ 10,00">
-                        Brigadeiros Marmitinha 3 unds. R$ 10,00
-                      </option>
-                      <option value="Brigadeiros Marmitinha	6 unds.	R$ 14,00">
-                        Brigadeiros Marmitinha 6 unds. R$ 14,00
-                      </option>
-                      <option value="Brigadeiros Marmitinha 12 unds. R$ 75,00">
-                        Brigadeiros Marmitinha 12 unds. R$ 75,00
-                      </option>
-                      <option value="Brigadeiros Caixinha kraft 4 unds. R$ 75,00">
-                        Brigadeiros Caixinha kraft 4 unds. R$ 75,00
-                      </option>
-                      <option value="Brigadeiros Caixinha kraft 20 unds. R$ 75,00">
-                        Brigadeiros Caixinha kraft 20 unds. R$ 75,00
-                      </option>
-                      <option value="Brigadeiros Caixinha kraft 30 unds. R$ 75,00">
-                        Brigadeiros Caixinha kraft 30 unds. R$ 75,00
-                      </option>
-                      <option value="Brigadeiros Caixinha presente 4 unds. R$ 24,00">
-                        Brigadeiros Caixinha presente 4 unds. R$ 24,00
-                      </option>
-                      <option value="Brigadeiros Caixinha presente 6 unds. R$ 32,00">
-                        Brigadeiros Caixinha presente 6 unds. R$ 32,00
-                      </option>
-                      <option value="Brigadeiros Caixinha presente 9 unds. R$ 42,00">
-                        Brigadeiros Caixinha presente 9 unds. R$ 42,00
-                      </option>
-                      <option value="Brigadeiros Caixinha presente 12 unds. R$ 58,00">
-                        Brigadeiros Caixinha presente 12 unds. R$ 58,00
-                      </option>
-                      <option value="Brigadeiros Caixinha presente 15 unds. R$ 68,00">
-                        Brigadeiros Caixinha presente 15 unds. R$ 68,00
-                      </option>
-                      <option value="Brigadeiros Caixinha presente 25 unds. R$ 96,00">
-                        Brigadeiros Caixinha presente 25 unds. R$ 96,00
-                      </option>
-                      <option value="Lembrancinhas Palha italiana	kg R$ 89,00">
-                        Lembrancinhas Palha italiana kg R$ 89,00
-                      </option>
-                      <option value="Lembrancinhas Palha italiana potinho	P	R$ 16,00">
-                        Lembrancinhas Palha italiana potinho P R$ 16,00
-                      </option>
-                      <option value="Lembrancinhas Palha italiana potinho	G	R$ 35,00">
-                        Lembrancinhas Palha italiana potinho G R$ 35,00
-                      </option>
-                      <option value="Lembrancinhas Sandubinha de Brownie R$ 13,00">
-                        Lembrancinhas Sandubinha de Brownie R$ 13,00
-                      </option>
-                      <option value="Lembrancinhas Sandubinha Especial P R$ 9,90">
-                        Lembrancinhas Sandubinha Especial P R$ 9,90
-                      </option>
-                      <option value="Lembrancinhas Sandubinha Especial G R$ 15,50">
-                        Lembrancinhas Sandubinha Especial G R$ 15,50
-                      </option>
-                      <option value="Lembrancinhas Cookie Brigadeiro R$ 7,50">
-                        Lembrancinhas Cookie Brigadeiro R$ 7,50
-                      </option>
-                      <option value="Lembrancinhas Cookie Caramelo e Flor de Sal R$ 8,50">
-                        Lembrancinhas Cookie Caramelo e Flor de Sal R$ 8,50
-                      </option>
-                      <option value="Lembrancinhas Saquinho mini cookies 3 unds. R$ 15,00">
-                        Lembrancinhas Saquinho mini cookies 3 unds. R$ 15,00
-                      </option>
-                    </optgroup> */}
-=======
->>>>>>> Init
+                  <select onChange={e => this.handleSelect(e, index)}>
+                    <option value="" defaultValue>
+                      Escolha um produto
+                    </option>
                     <optgroup label="Cardápio Páscoa Normal">
                       {ProdutosPascoaCardapioNormal.map(produto => (
                         <option key={produto.name} value={produto.name}>
-                          {`Páscoa - ${produto.name} R$${produto.price}`}
+                          {`Páscoa - ${produto.name} R$${produto.price
+                            .toFixed(2)
+                            .toString()
+                            .replace(/\./g, ",")}`}
                         </option>
                       ))}
                     </optgroup>
                     <optgroup label="Cardápio Páscoa Corporativo">
-                      {ProdutosPascoaCardapioNormal.map(produto => (
-                        <option
-                          key={produto.name}
-                          value={`Páscoa Corporativo - ${produto.name} R$${
-                            produto.price
-                          }`}
-                        >
-                          {`Páscoa Corporativo - ${produto.name} R$${
-                            produto.price
-                          }`}
+                      {ProdutosPascoaCardapioCorporativo.map(produto => (
+                        <option key={produto.name} value={produto.name}>
+                          {`Páscoa Corporativo - ${
+                            produto.name
+                          } R$${produto.price
+                            .toFixed(2)
+                            .toString()
+                            .replace(/\./g, ",")}`}
                         </option>
                       ))}
                     </optgroup>
@@ -386,7 +261,7 @@ class ModalEncomendas extends React.Component {
               ))}
               <OrderDetails>
                 <p>Detalhamento do pedido</p>
-                <p>{`R$ ${totalValue}`}</p>
+                <p>{`R$ ${finalValue}`}</p>
               </OrderDetails>
             </SelectWrapper>
             <AddMore onClick={this.addNewProduct}>
