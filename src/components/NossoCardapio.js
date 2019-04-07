@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import Container from "./Container"
 import { Wave } from "./Wave"
-import { Button } from "./Button"
+import { Button, GreenButton } from "./Button"
 import ModalEncomendas from "./ModalEncomendas"
 
 const NossoCardapioComponent = styled.section`
@@ -44,7 +44,7 @@ class NossoCardapio extends React.Component {
               Todos os nossos produtos são 100% artesanais e fresquinhos, feitos
               com muito amor pra você
             </P>
-            <Button
+            <GreenButton
               cta
               whats
               title="Fazer pedido"
@@ -52,7 +52,7 @@ class NossoCardapio extends React.Component {
               onClick={this.toggleModalEncomendasState}
             >
               Fazer pedido
-            </Button>
+            </GreenButton>
             {/* <Link style={{ textDecoration: "none", color: "#210305" }} to="/">
         Saiba mais sobre a Anne
       </Link> */}

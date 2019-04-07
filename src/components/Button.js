@@ -7,7 +7,7 @@ export const Button = styled.button`
   font: 14px Muli;
   border-radius: 50px;
   color: #fff;
-  padding: 18px 90px;
+  padding: 18px 60px;
   font-weight: bold;
   box-shadow: 0 3px 14px 0 rgba(157, 157, 157, 0.4);
   cursor: pointer;
@@ -15,6 +15,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 240px;
 
   ${props => props.cta && `text-decoration: underlined;`}
 
