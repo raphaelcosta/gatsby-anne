@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'localhost:8888/anne',
+        baseUrl: 'http://anneschuartz2.hospedagemdesites.ws/',
         protocol: 'http',
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the assumption is made that the site is self hosted.
