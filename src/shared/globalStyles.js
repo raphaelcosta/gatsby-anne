@@ -1,12 +1,5 @@
-import { createGlobalStyle } from "styled-components"
-import {
-  AbrilTTF,
-  AbrilWOFF,
-  AbrilOTF,
-  AnneTTF,
-  AnneWOFF,
-  AnneSVG,
-} from "./fonts"
+import { createGlobalStyle } from 'styled-components';
+import { AbrilTTF, AbrilWOFF, AnneTTF, AnneWOFF, AnneSVG } from './fonts';
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -27,4 +20,4 @@ export const GlobalStyles = createGlobalStyle`
     font: 30px Abril;
     margin: 0;
   }
-`
+`;

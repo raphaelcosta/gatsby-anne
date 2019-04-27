@@ -1,12 +1,13 @@
-import React from "react"
-import Helmet from "react-helmet"
+import * as React from 'react';
+import Helmet from 'react-helmet';
+import { graphql, StaticQuery } from 'gatsby';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Hero from "../components/hero"
-import NossoCardapio from "../components/NossoCardapio"
-import MuitoAmor from "../components/MuitoAmor"
-import VejaMais from "../components/VejaMais"
+import Hero from '../components/hero';
+import Layout from '../components/layout';
+import MuitoAmor from '../components/MuitoAmor';
+import NossoCardapio from '../components/NossoCardapio';
+import SEO from '../components/seo';
+import VejaMais from '../components/VejaMais';
 
 const IndexPage = () => (
   <Layout>
@@ -29,10 +30,7 @@ const IndexPage = () => (
     src="https://www.facebook.com/tr?id=374116829696592&ev=PageView&noscript=1"
   />`}
       </noscript>
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=AW-814054608"
-      />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-814054608" />
       <script>
         {`window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -64,6 +62,6 @@ const IndexPage = () => (
     <MuitoAmor />
     <VejaMais />
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

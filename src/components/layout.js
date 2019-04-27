@@ -5,13 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import * as React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Header from "./header"
-import Footer from "./Footer"
-import "./layout.css"
-import { GlobalStyles } from "../shared/globalStyles"
+import Header from './header';
+import Footer from './Footer';
+import './layout.css';
+import { GlobalStyles } from '../shared/globalStyles';
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -28,13 +28,11 @@ const Layout = ({ children }) => (
       <React.Fragment>
         <GlobalStyles />
         <Header />
-        <div>
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <main>{children}</main>
+        <Footer />
       </React.Fragment>
     )}
   />
-)
+);
 
-export default Layout
+export default Layout;
