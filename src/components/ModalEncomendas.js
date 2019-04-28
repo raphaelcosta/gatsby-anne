@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 import { Portal } from 'react-portal';
 import styled from 'styled-components';
 
@@ -149,6 +150,7 @@ class ModalEncomendas extends React.Component {
     products: [{ name: '', value: '' }],
     pedido: '',
     totalValue: 0.0,
+    cardapioProducts: [],
   };
 
   handleClickOutside() {
@@ -234,26 +236,52 @@ class ModalEncomendas extends React.Component {
                     <option value="" defaultValue>
                       Escolha um produto
                     </option>
-                    <optgroup label="Cardápio Páscoa Normal">
-                      {ProdutosPascoaCardapioNormal.map(produto => (
-                        <option key={produto.name} value={produto.name}>
-                          {`Páscoa - ${produto.name} R$${produto.price
-                            .toFixed(2)
-                            .toString()
-                            .replace(/\./g, ',')}`}
-                        </option>
-                      ))}
-                    </optgroup>
-                    <optgroup label="Cardápio Páscoa Corporativo">
-                      {ProdutosPascoaCardapioCorporativo.map(produto => (
-                        <option key={produto.name} value={produto.name}>
-                          {`Páscoa Corporativo - ${produto.name} R$${produto.price
-                            .toFixed(2)
-                            .toString()
-                            .replace(/\./g, ',')}`}
-                        </option>
-                      ))}
-                    </optgroup>
+                    <StaticQuery
+                      query={graphql`
+                        {
+                          allWordpressWpCardapio {
+                            edges {
+                              node {
+                                id
+                                title
+                                acf {
+                                  item_cardapio_ativado
+                                  description
+                                  products {
+                                    categories {
+                                      name
+                                      products {
+                                        name
+                                        description
+                                        value
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      `}
+                      render={props => {
+                        const cardapioProducts = props.allWordpressWpCardapio.edges;
+                        return cardapioProducts.map(category => {
+                          return category.node.acf.item_cardapio_ativado === true ? (
+                            <optgroup key={category.node.id} label={category.node.title}>
+                              {category.node.acf.products.categories.map(subCategory => {
+                                return subCategory.products.map((product, index) => (
+                                  <option key={index} value={product.name}>
+                                    {`${product.name} ${
+                                      product.description
+                                    } R$${product.value.replace(/\./g, ',')}`}
+                                  </option>
+                                ));
+                              })}
+                            </optgroup>
+                          ) : null;
+                        });
+                      }}
+                    />
                   </select>
                 </CustomSelect>
               ))}

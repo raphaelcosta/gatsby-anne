@@ -80,6 +80,7 @@ class CardapioPage extends React.Component {
                   edges {
                     node {
                       id
+                      date
                       status
                       slug
                       title
