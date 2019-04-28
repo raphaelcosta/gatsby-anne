@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
-import { GreenButton } from '../components/button';
+import { GreenButton } from '../components/Button';
 import CardapioBox from '../components/CardapioBox';
 
 const P = styled.p`
