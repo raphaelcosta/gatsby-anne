@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import Encomendas from './Encomendas';
 
-const ModalEncomendas = () => (
+const ModalEncomendas = ({ toggleModalEncomendas }) => (
   <StaticQuery
     query={graphql`
       {
@@ -30,7 +30,12 @@ const ModalEncomendas = () => (
         }
       }
     `}
-    render={props => <Encomendas cardapioProducts={props.allWordpressWpCardapio.edges} />}
+    render={props => (
+      <Encomendas
+        toggleModalEncomendas={toggleModalEncomendas}
+        cardapioProducts={props.allWordpressWpCardapio.edges}
+      />
+    )}
   />
 );
 
