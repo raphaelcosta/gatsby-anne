@@ -61,7 +61,7 @@ const CardapioPage = () => (
       </div>
     </HeroSection>
     <StyledCardapioBoxContainer>
-      {/* <StaticQuery
+      <StaticQuery
         query={graphql`
           {
             allWordpressWpCardapio {
@@ -97,7 +97,7 @@ const CardapioPage = () => (
             ) : null;
           })
         }
-      /> */}
+      />
     </StyledCardapioBoxContainer>
   </Layout>
 );

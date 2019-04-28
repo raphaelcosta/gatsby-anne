@@ -66,49 +66,49 @@ exports.createPages = ({ graphql, actions }) => {
       })
       // ==== END PAGES ====
       // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
-      // .then(() => {
-      //   graphql(
-      //     `
-      //       {
-      //         allWordpressWpCardapio {
-      //           edges {
-      //             node {
-      //               id
-      //               status
-      //               slug
-      //               title
-      //               excerpt
-      //               featured_media {
-      //                 source_url
-      //               }
-      //               acf {
-      //                 item_cardapio_ativado
-      //               }
-      //             }
-      //           }
-      //         }
-      //       }
-      //     `
-      //   ).then(result => {
-      //     if (result.errors) {
-      //       console.log(result.errors);
-      //       reject(result.errors);
-      //     }
-      //     const cardapioTemplate = path.resolve('./src/templates/cardapio.js');
-      //     // We want to create a detailed page for each
-      //     // post node. We'll just use the WordPress Slug for the slug.
-      //     // The Post ID is prefixed with 'POST_'
-      //     _.each(result.data.allWordpressWpCardapio.edges, edge => {
-      //       edge.node.acf.item_cardapio_ativado === true &&
-      //         createPage({
-      //           path: `/cardapio/${edge.node.slug}/`,
-      //           component: slash(cardapioTemplate),
-      //           context: edge.node,
-      //         });
-      //     });
-      //     resolve();
-      //   });
-      // })
+      .then(() => {
+        graphql(
+          `
+            {
+              allWordpressWpCardapio {
+                edges {
+                  node {
+                    id
+                    status
+                    slug
+                    title
+                    excerpt
+                    featured_media {
+                      source_url
+                    }
+                    acf {
+                      item_cardapio_ativado
+                    }
+                  }
+                }
+              }
+            }
+          `
+        ).then(result => {
+          if (result.errors) {
+            console.log(result.errors);
+            reject(result.errors);
+          }
+          const cardapioTemplate = path.resolve('./src/templates/cardapio.js');
+          // We want to create a detailed page for each
+          // post node. We'll just use the WordPress Slug for the slug.
+          // The Post ID is prefixed with 'POST_'
+          _.each(result.data.allWordpressWpCardapio.edges, edge => {
+            edge.node.acf.item_cardapio_ativado === true &&
+              createPage({
+                path: `/cardapio/${edge.node.slug}/`,
+                component: slash(cardapioTemplate),
+                context: edge.node,
+              });
+          });
+          resolve();
+        });
+      })
       // ==== END POSTS ====
 
       // ==== POSTS (WORDPRESS NATIVE AND ACF) ====
