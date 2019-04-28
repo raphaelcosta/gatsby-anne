@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import { GreenButton } from '../components/Button';
 import CardapioBox from '../components/CardapioBox';
+import ModalEncomendas from '../components/ModalEncomendas';
 
 const P = styled.p`
   color: #c94f46;
@@ -40,66 +41,82 @@ const StyledOverlay = styled.div`
   z-idex: 5;
 `;
 
-const CardapioPage = () => (
-  <Layout>
-    <HeroSection>
-      <div className="as-hero" style={{ padding: '176px 0', margin: '0 auto', maxWidth: 960 }}>
-        <P>BEM-VINDO</P>
-        <H1>Um dia com doçura, é um dia com mais amor</H1>
-        <GreenButton
-          whats
-          onClick={() => {
-            window.fbq('track', 'Contact');
-            window.gtag_report_conversion();
-            window.location.href = `https://wa.me/5541995958787?text=Oi,%20Anne!%20Gostaria%20de%20fazer%20um%20pedido:%20${
-              this.state.pedido
-            }`;
-          }}
-        >
-          Fazer pedido
-        </GreenButton>
-      </div>
-    </HeroSection>
-    <StyledCardapioBoxContainer>
-      <StaticQuery
-        query={graphql`
-          {
-            allWordpressWpCardapio {
-              edges {
-                node {
-                  id
-                  status
-                  slug
-                  title
-                  excerpt
-                  featured_media {
-                    source_url
-                  }
-                  acf {
-                    item_cardapio_ativado
+class CardapioPage extends React.Component {
+  state = {
+    isModalEncomendasOpened: false,
+  };
+
+  toggleModalEncomendasState = () => {
+    this.setState(prevState => ({
+      isModalEncomendasOpened: !prevState.isModalEncomendasOpened,
+    }));
+  };
+
+  render() {
+    const { isModalEncomendasOpened } = this.state;
+
+    return (
+      <Layout>
+        <HeroSection>
+          <div className="as-hero" style={{ padding: '176px 0', margin: '0 auto', maxWidth: 960 }}>
+            <P>BEM-VINDO</P>
+            <H1>Um dia com doçura, é um dia com mais amor</H1>
+            <GreenButton
+              whats
+              onClick={e => {
+                e.preventDefault();
+                this.toggleModalEncomendasState();
+              }}
+            >
+              Fazer pedido
+            </GreenButton>
+          </div>
+        </HeroSection>
+        <StyledCardapioBoxContainer>
+          <StaticQuery
+            query={graphql`
+              {
+                allWordpressWpCardapio {
+                  edges {
+                    node {
+                      id
+                      status
+                      slug
+                      title
+                      excerpt
+                      featured_media {
+                        source_url
+                      }
+                      acf {
+                        item_cardapio_ativado
+                      }
+                    }
                   }
                 }
               }
+            `}
+            render={props =>
+              props.allWordpressWpCardapio.edges.map(produto => {
+                return produto.node.acf.item_cardapio_ativado === true ? (
+                  <CardapioBox
+                    backgroundUrl={produto.node.featured_media.source_url}
+                    key={produto.node.id}
+                    to={`/cardapio/${produto.node.slug}`}
+                  >
+                    <p>{produto.node.title}</p>
+                    <StyledOverlay />
+                  </CardapioBox>
+                ) : null;
+              })
             }
-          }
-        `}
-        render={props =>
-          props.allWordpressWpCardapio.edges.map(produto => {
-            return produto.node.acf.item_cardapio_ativado === true ? (
-              <CardapioBox
-                backgroundUrl={produto.node.featured_media.source_url}
-                key={produto.node.id}
-                to={`/cardapio/${produto.node.slug}`}
-              >
-                <p>{produto.node.title}</p>
-                <StyledOverlay />
-              </CardapioBox>
-            ) : null;
-          })
-        }
-      />
-    </StyledCardapioBoxContainer>
-  </Layout>
-);
+          />
+        </StyledCardapioBoxContainer>
+        {isModalEncomendasOpened && (
+          <ModalEncomendas toggleModalEncomendas={this.toggleModalEncomendasState} />
+        )}
+      </Layout>
+    );
+  }
+}
 
 export default CardapioPage;

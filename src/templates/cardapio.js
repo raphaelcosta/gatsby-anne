@@ -4,6 +4,11 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import Container from '../components/Container';
 import { GreenButton } from '../components/Button';
+import ModalEncomendas from '../components/ModalEncomendas';
+
+const CardapioBoxContainer = styled.div`
+  background: #210305;
+`;
 
 const CardapioBox = styled.div`
   height: 450px;
@@ -113,17 +118,53 @@ const SectionReturn = styled.div`
     font: 600 16px Muli;
     text-decoration: none;
     border-bottom: 1px dotted #210305;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      &:before {
+        left: -25px;
+      }
+    }
+
+    &:before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      z-index: 10;
+      display: flex;
+      left: -20px;
+      position: absolute;
+      top: 6px;
+      transform: rotate(90deg);
+      background: url('https://s3-sa-east-1.amazonaws.com/anneschuartz/site/arrow-down.svg')
+        no-repeat center center;
+    }
   }
 `;
 
 export default class extends React.Component {
+  state = {
+    isModalEncomendasOpened: false,
+  };
+
+  toggleModalEncomendasState = () => {
+    this.setState(prevState => ({
+      isModalEncomendasOpened: !prevState.isModalEncomendasOpened,
+    }));
+  };
+
   render() {
+    const { isModalEncomendasOpened } = this.state;
     const { pageContext } = this.props;
     return (
       <Layout>
-        <CardapioBox backgroundUrl={pageContext.featured_media.source_url}>
-          <StyledOverlay />
-        </CardapioBox>
+        <CardapioBoxContainer>
+          <CardapioBox backgroundUrl={pageContext.featured_media.source_url}>
+            <StyledOverlay />
+          </CardapioBox>
+        </CardapioBoxContainer>
+
         <HeroSection>
           <H1>{pageContext.title}</H1>
           {pageContext.acf.description && (
@@ -131,11 +172,9 @@ export default class extends React.Component {
           )}
           <GreenButton
             whats
-            onClick={() => {
-              window.fbq('track', 'Contact');
-              window.gtag_report_conversion();
-              window.location.href =
-                'https://wa.me/5541995958787?text=Oi,%20Anne!%20Gostaria%20de%20fazer%20um%20pedido:%20';
+            onClick={e => {
+              e.preventDefault();
+              this.toggleModalEncomendasState();
             }}
           >
             Fazer pedido
@@ -157,9 +196,9 @@ export default class extends React.Component {
                         <TableDivider />
                         {product.description}
                       </td>
-                      <td style={{ color: '#624244', width: '20%', textAlign: 'center' }}>{`R$${
-                        product.value
-                      }`}</td>
+                      <td
+                        style={{ color: '#624244', width: '20%', textAlign: 'center' }}
+                      >{`R$${product.value.replace(/\./g, ',')}`}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -168,9 +207,14 @@ export default class extends React.Component {
         </TableSection>
         <SectionReturn>
           <Container>
-            <Link to={'/cardapio'}>Voltar</Link>
+            <Link title="Voltar" tabIndex={0} to={'/cardapio'}>
+              Voltar
+            </Link>
           </Container>
         </SectionReturn>
+        {isModalEncomendasOpened && (
+          <ModalEncomendas toggleModalEncomendas={this.toggleModalEncomendasState} />
+        )}
       </Layout>
     );
   }

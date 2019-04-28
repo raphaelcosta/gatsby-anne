@@ -1,12 +1,9 @@
-import * as React from "react"
-import { Portal } from "react-portal"
-import styled from "styled-components"
+import * as React from 'react';
+import { Portal } from 'react-portal';
+import styled from 'styled-components';
 
-import { GreenButton } from "./Button"
-import {
-  ProdutosPascoaCardapioNormal,
-  ProdutosPascoaCardapioCorporativo,
-} from "./Produtos"
+import { GreenButton } from './Button';
+import { ProdutosPascoaCardapioNormal, ProdutosPascoaCardapioCorporativo } from './Produtos';
 
 const Overlay = styled.div`
   align-items: center;
@@ -21,7 +18,7 @@ const Overlay = styled.div`
   top: 0;
   width: 100%
   z-index: 5;
-`
+`;
 const ModalContainer = styled.div`
   align-items: center;
   bottom: 0;
@@ -34,7 +31,7 @@ const ModalContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 5;
-`
+`;
 
 const ModalEncomendasComponent = styled.div`
   background: #fff;
@@ -45,7 +42,7 @@ const ModalEncomendasComponent = styled.div`
   width: 380px;
   max-height: 600px;
   z-index: 10;
-`
+`;
 const P = styled.p`
   font: 16px Muli;
   font-weight: bold;
@@ -54,7 +51,7 @@ const P = styled.p`
   span {
     color: #dc8c86;
   }
-`
+`;
 
 const CloseButton = styled.button`
   background: none;
@@ -68,7 +65,7 @@ const CloseButton = styled.button`
   &:focus {
     outline: 0;
   }
-`
+`;
 
 const SelectWrapper = styled.div`
   border: 1px solid #dfa19b;
@@ -76,7 +73,7 @@ const SelectWrapper = styled.div`
   padding: 20px 26px;
   max-height: 400px;
   overflow: auto;
-`
+`;
 const OrderDetails = styled.div`
   border-top: 1px dashed #895858;
   display: flex;
@@ -88,7 +85,7 @@ const OrderDetails = styled.div`
   p {
     margin: 0;
   }
-`
+`;
 
 const AddMore = styled.a`
   align-items: center;
@@ -110,13 +107,13 @@ const AddMore = styled.a`
   &:focus {
     opacity: 0.5;
   }
-`
+`;
 
 const CustomSelect = styled.div`
   position: relative;
 
   &:before {
-    content: "";
+    content: '';
     width: 10px;
     height: 10px;
     z-index: 10;
@@ -124,8 +121,8 @@ const CustomSelect = styled.div`
     right: 0;
     position: absolute;
     top: 15px;
-    background: url("https://s3-sa-east-1.amazonaws.com/anneschuartz/site/arrow-down.svg")
-      no-repeat center center;
+    background: url('https://s3-sa-east-1.amazonaws.com/anneschuartz/site/arrow-down.svg') no-repeat
+      center center;
   }
 
   select {
@@ -145,74 +142,70 @@ const CustomSelect = styled.div`
       color: #dc8c86;
     }
   }
-`
+`;
 
 class ModalEncomendas extends React.Component {
   state = {
-    products: [{ name: "", value: "" }],
-    pedido: "",
+    products: [{ name: '', value: '' }],
+    pedido: '',
     totalValue: 0.0,
-  }
+  };
 
   handleClickOutside() {
-    const { toggleModalEncomendas } = this.props
-    toggleModalEncomendas()
+    const { toggleModalEncomendas } = this.props;
+    toggleModalEncomendas();
   }
 
   addNewProduct = e => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState(prevState => ({
-      products: [...prevState.products, { name: "", value: "" }],
-    }))
-  }
+      products: [...prevState.products, { name: '', value: '' }],
+    }));
+  };
 
   handleSelect = (e, index) => {
-    const produtoName = e.target.value
-    const produtos = ProdutosPascoaCardapioNormal.concat(
-      ProdutosPascoaCardapioCorporativo
-    )
+    const produtoName = e.target.value;
+    const produtos = ProdutosPascoaCardapioNormal.concat(ProdutosPascoaCardapioCorporativo);
     const produto = produtos.filter(produto => {
-      return produto.name === produtoName
-    })
+      return produto.name === produtoName;
+    });
 
-    const produtoPrice = produto["0"] ? produto["0"].price : 0
-    const produtoCatagory = produto["0"] ? produto["0"].category : ""
+    const produtoPrice = produto['0'] ? produto['0'].price : 0;
+    const produtoCatagory = produto['0'] ? produto['0'].category : '';
 
-    const products = this.state.products
-    products[index] = { name: produtoName, value: produtoPrice }
+    const products = this.state.products;
+    products[index] = { name: produtoName, value: produtoPrice };
 
     const finalPrice = products.reduce((acc, currentValue) => {
-      return acc + currentValue.value
-    }, 0)
+      return acc + currentValue.value;
+    }, 0);
 
     const pedidoString = products.map(product => {
-      const finalProductValue = product.value.toString().replace(/\./g, ",")
-      return `${produtoCatagory} - ${product.name} R$${finalProductValue}`
-    })
+      const finalProductValue = product.value.toString().replace(/\./g, ',');
+      return `${produtoCatagory} - ${product.name} R$${finalProductValue}`;
+    });
 
     const finalValue = finalPrice
       .toFixed(2)
       .toString()
-      .replace(/\./g, ",")
+      .replace(/\./g, ',');
 
-    const pedido = pedidoString
-      .join(", ")
-      .concat(` Valor total do pedido: ${finalValue}`)
+    const pedido = pedidoString.join(', ').concat(` Valor total do pedido: ${finalValue}`);
 
     this.setState(prevState => ({
       products: products,
       totalValue: finalPrice,
       pedido: pedido,
-    }))
-  }
+    }));
+  };
 
   render() {
-    const { toggleModalEncomendas } = this.props
-    const { products, totalValue } = this.state
+    const { toggleModalEncomendas } = this.props;
+    const { products, totalValue } = this.state;
     const finalValue = totalValue
       .toFixed(2)
       .toString()
-      .replace(/\./g, ",")
+      .replace(/\./g, ',');
 
     return (
       <Portal closeOnOutsideClick closeOnEsc>
@@ -224,8 +217,8 @@ class ModalEncomendas extends React.Component {
             </P>
             <CloseButton
               onClick={e => {
-                e.preventDefault()
-                toggleModalEncomendas()
+                e.preventDefault();
+                toggleModalEncomendas();
               }}
             >
               <img
@@ -247,19 +240,17 @@ class ModalEncomendas extends React.Component {
                           {`Páscoa - ${produto.name} R$${produto.price
                             .toFixed(2)
                             .toString()
-                            .replace(/\./g, ",")}`}
+                            .replace(/\./g, ',')}`}
                         </option>
                       ))}
                     </optgroup>
                     <optgroup label="Cardápio Páscoa Corporativo">
                       {ProdutosPascoaCardapioCorporativo.map(produto => (
                         <option key={produto.name} value={produto.name}>
-                          {`Páscoa Corporativo - ${
-                            produto.name
-                          } R$${produto.price
+                          {`Páscoa Corporativo - ${produto.name} R$${produto.price
                             .toFixed(2)
                             .toString()
-                            .replace(/\./g, ",")}`}
+                            .replace(/\./g, ',')}`}
                         </option>
                       ))}
                     </optgroup>
@@ -281,20 +272,18 @@ class ModalEncomendas extends React.Component {
             </AddMore>
             <div
               style={{
-                display: "flex",
-                justifyContent: "center",
-                width: "100%",
+                display: 'flex',
+                justifyContent: 'center',
+                width: '100%',
                 marginTop: 30,
               }}
             >
               <GreenButton
                 whats
                 onClick={() => {
-                  window.fbq("track", "Contact")
-                  window.gtag_report_conversion()
                   window.location.href = `https://wa.me/5541995958787?text=Oi,%20Anne!%20Gostaria%20de%20fazer%20um%20pedido:%20${
                     this.state.pedido
-                  }`
+                  }`;
                 }}
               >
                 Fazer pedido
@@ -303,8 +292,8 @@ class ModalEncomendas extends React.Component {
           </ModalEncomendasComponent>
         </ModalContainer>
       </Portal>
-    )
+    );
   }
 }
 
-export default ModalEncomendas
+export default ModalEncomendas;
