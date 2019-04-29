@@ -53,14 +53,78 @@ const IndexPage = () => (
       }`}
       </script>
     </Helmet>
-    <SEO
-      title="Encomenda de Doces, Tortas e Bolos | Anne Schuartz"
-      keywords={[`doces`, `tortas`, `bolos`]}
+    <StaticQuery
+      query={graphql`
+        {
+          allWordpressPage {
+            edges {
+              node {
+                id
+                title
+                acf {
+                  home_title
+                  cardapio {
+                    title
+                    description
+                  }
+                  testimony {
+                    title
+                    content
+                  }
+                  more_section {
+                    title
+                    description
+                    image_1
+                    image_2
+                    image_3
+                    image_4
+                    image_5
+                  }
+                  footer {
+                    location {
+                      title
+                      address
+                      url
+                    }
+                    contact {
+                      title
+                      email
+                      whatsapp
+                      fixo
+                      schedule
+                      social_networks {
+                        facebook
+                        instagram
+                        spotify
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={props => {
+        const wordpressData = props.allWordpressPage.edges['0'].node.acf;
+        const cardapioData = wordpressData.cardapio;
+        const testimonyData = wordpressData.testimony;
+        const moreSectionData = wordpressData.more_section;
+
+        return (
+          <React.Fragment>
+            <SEO
+              title="Encomenda de Doces, Tortas e Bolos | Anne Schuartz"
+              keywords={[`doces`, `tortas`, `bolos`]}
+            />
+            <Hero title={wordpressData.home_title} />
+            <NossoCardapio {...cardapioData} />
+            <MuitoAmor {...testimonyData} />
+            <VejaMais {...moreSectionData} />
+          </React.Fragment>
+        );
+      }}
     />
-    <Hero />
-    <NossoCardapio />
-    <MuitoAmor />
-    <VejaMais />
   </Layout>
 );
 

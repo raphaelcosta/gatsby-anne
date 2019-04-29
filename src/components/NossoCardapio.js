@@ -33,17 +33,15 @@ class NossoCardapio extends React.Component {
 
   render() {
     const { isModalEncomendasOpened } = this.state;
+    const { title, description } = this.props;
 
     return (
       <React.Fragment>
         <NossoCardapioComponent>
           <Container>
-            <h2>O nosso cardápio</h2>
+            <h2>{title}</h2>
             <Wave />
-            <P>
-              Todos os nossos produtos são 100% artesanais e fresquinhos, feitos com muito amor pra
-              você
-            </P>
+            <P dangerouslySetInnerHTML={{ __html: description }} />
             <GreenButton
               cta
               whats

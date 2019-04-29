@@ -46,11 +46,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Hero = () => (
+const Hero = props => (
   <HeroSection>
     <div className="as-hero" style={{ padding: '176px 0', margin: '0 auto', maxWidth: 960 }}>
       <P>BEM-VINDO</P>
-      <H1>Um dia com doçura, é um dia com mais amor</H1>
+      <H1>{props.title}</H1>
       <StyledLink to="/cardapio">Ver cardápio</StyledLink>
     </div>
   </HeroSection>

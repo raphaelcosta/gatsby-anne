@@ -8,6 +8,7 @@ import ModalEncomendas from '../components/ModalEncomendas';
 
 const CardapioBoxContainer = styled.div`
   background: #210305;
+  margin-top: 70px;
 `;
 
 const CardapioBox = styled.div`

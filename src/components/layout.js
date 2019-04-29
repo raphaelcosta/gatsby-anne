@@ -16,22 +16,49 @@ import { GlobalStyles } from '../shared/globalStyles';
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+      {
+        allWordpressPage {
+          edges {
+            node {
+              id
+              title
+              acf {
+                footer {
+                  location {
+                    title
+                    address
+                    url
+                  }
+                  contact {
+                    title
+                    email
+                    whatsapp
+                    fixo
+                    schedule
+                    social_networks {
+                      facebook
+                      instagram
+                      spotify
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     `}
-    render={data => (
-      <React.Fragment>
-        <GlobalStyles />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </React.Fragment>
-    )}
+    render={props => {
+      const footerData = props.allWordpressPage.edges['0'].node.acf.footer;
+      return (
+        <React.Fragment>
+          <GlobalStyles />
+          <Header />
+          <main>{children}</main>
+          <Footer {...footerData} />
+        </React.Fragment>
+      );
+    }}
   />
 );
 

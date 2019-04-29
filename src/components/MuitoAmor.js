@@ -21,16 +21,12 @@ const P = styled.p`
   max-width: 520px;
 `;
 
-const MuitoAmor = () => (
+const MuitoAmor = ({ title, content }) => (
   <React.Fragment>
     <MuitoAmorComponent>
       <Container>
-        <h2>Dedicação e muito amor</h2>
-        <P>
-          Bolos e doces maravilhosos, divinos, além de lindos um sabor inigualável. Ambiente
-          aconchegante e agradável. Atendimento impecável. [...] A Anne faz tudo com muito carinho e
-          amor. - Leticia Marinoni
-        </P>
+        <h2>{title}</h2>
+        <P dangerouslySetInnerHTML={{ __html: content }} />
       </Container>
     </MuitoAmorComponent>
   </React.Fragment>
