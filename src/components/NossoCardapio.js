@@ -18,6 +18,7 @@ const P = styled.p`
   font: 14px Muli;
   text-align: center;
   max-width: 420px;
+  margin-bottom: 20px;
 `;
 
 class NossoCardapio extends React.Component {
