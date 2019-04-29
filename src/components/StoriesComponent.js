@@ -15,14 +15,15 @@ const StoriesContainer = styled.div`
   background: rgb(17, 17, 17);
 `;
 
-const CloseButton = styled.button`
+const CloseAnchor = styled.a`
   background: none;
   border: 0;
   cursor: pointer;
   font: 12px Muli;
   position: fixed;
-  right: 12px;
-  top: 12px;
+  right: 5px;
+  top: 5px;
+  z-index: 25;
 
   img {
     width: 30px;
@@ -50,7 +51,8 @@ class StoriesComponent extends React.Component {
     return (
       <Portal>
         <StoriesContainer>
-          <CloseButton
+          <CloseAnchor
+            href="#"
             onClick={e => {
               e.preventDefault();
               toggleMediaStories();
@@ -61,7 +63,7 @@ class StoriesComponent extends React.Component {
               title="fechar"
               src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/close.svg"
             />
-          </CloseButton>
+          </CloseAnchor>
           <Stories stories={stories} defaultInterval={1500} width={330} height={650} />
         </StoriesContainer>
       </Portal>
