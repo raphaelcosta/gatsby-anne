@@ -42,6 +42,7 @@ class StoriesComponent extends React.Component {
           'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/04/y2mate.com-anne_schuartz_l_encomendas_de_bolos_tortas_e_doces_l_pascoa_2019_1s_ElLKv5-Q_1080p.mp4',
         type: 'video',
         width: 330,
+        height: 650,
       },
     ];
     const { toggleMediaStories } = this.props;
@@ -61,7 +62,7 @@ class StoriesComponent extends React.Component {
               src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/close.svg"
             />
           </CloseButton>
-          <Stories stories={stories} defaultInterval={1500} width={330} height={768} />
+          <Stories stories={stories} defaultInterval={1500} width={330} height={650} />
         </StoriesContainer>
       </Portal>
     );
