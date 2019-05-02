@@ -58,7 +58,7 @@ class CardapioPage extends React.Component {
     return (
       <Layout>
         <HeroSection>
-          <div className="as-hero" style={{ padding: '176px 0', margin: '0 auto', maxWidth: 960 }}>
+          <div className="as-hero" style={{ padding: '120px 0px 80px', margin: '0 auto', maxWidth: 960 }}>
             <P>BEM-VINDO</P>
             <H1>Um dia com doçura, é um dia com mais amor</H1>
             <GreenButton

@@ -40,7 +40,7 @@ const CardapioBox = styled.button`
   img {
     margin-right: 5px;
   }
-  
+
   p {
     margin: 0;
     position: absolute;
@@ -89,7 +89,7 @@ class MediaStories extends React.Component {
           <StyledOverlay />
           <p>
             <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/lupa.svg" />
-            Ver fotos
+            Nossa Galeria
           </p>
         </CardapioBox>
         {isVideoOpened && <StoriesComponent toggleMediaStories={this.toggleMediaStories} />}
