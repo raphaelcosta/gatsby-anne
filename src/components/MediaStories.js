@@ -88,7 +88,7 @@ class MediaStories extends React.Component {
           <StyledOverlay />
           <p>
             <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/lupa.svg" />
-            Nossa Galeria
+            Ver galeria
           </p>
         </CardapioBox>
         {isVideoOpened && <StoriesComponent toggleMediaStories={this.toggleMediaStories} />}
