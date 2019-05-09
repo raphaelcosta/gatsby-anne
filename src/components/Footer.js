@@ -95,9 +95,8 @@ const Footer = ({ location, contact }) => (
                 target="_blank"
                 rel="noopener noreferrer"
                 href={location.url}
-              >
-                {location.address}
-              </a>
+                dangerouslySetInnerHTML={{ __html: location.address }}
+              />
             </ListElement>
           </dl>
         </div>
@@ -108,6 +107,7 @@ const Footer = ({ location, contact }) => (
               <Icon mail />
               <a
                 title="email"
+                target="_blank"
                 tabIndex={0}
                 href={`mailto:${contact.email}`}
                 rel="noopener noreferrer"
@@ -120,6 +120,7 @@ const Footer = ({ location, contact }) => (
               <a
                 title="Envie-nos uma mensagem via whatsapp"
                 tabIndex={0}
+                target="_blank"
                 rel="noopener noreferrer"
                 href={`https://api.whatsapp.com/send?phone=${contact.whatsapp}`}
               >
@@ -141,13 +142,28 @@ const Footer = ({ location, contact }) => (
         </div>
       </Container>
       <SocialNetworks>
-        <a tabIndex={0} title="Visite o nosso instagram" href={contact.social_networks.instagram}>
+        <a
+          tabIndex={0}
+          target="_blank"
+          title="Visite o nosso instagram"
+          href={contact.social_networks.instagram}
+        >
           <Icon insta />
         </a>
-        <a tabIndex={0} title="Visite o nosso facebook" href={contact.social_networks.facebook}>
+        <a
+          tabIndex={0}
+          target="_blank"
+          title="Visite o nosso facebook"
+          href={contact.social_networks.facebook}
+        >
           <Icon face />
         </a>
-        <a tabIndex={0} title="Escute o nosso playlist" href={contact.social_networks.spotify}>
+        <a
+          tabIndex={0}
+          target="_blank"
+          title="Escute o nosso playlist"
+          href={contact.social_networks.spotify}
+        >
           <Icon spotify />
         </a>
       </SocialNetworks>

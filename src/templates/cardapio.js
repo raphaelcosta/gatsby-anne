@@ -21,16 +21,15 @@ const CardapioBox = styled.div`
   background-size: cover;
   background-position: center;
   position: relative;
-  max-width: 700px;
   margin: 0 auto;
-  transition: background-size 2s ease-in;
+  // transition: background-size 2s ease-in;
   cursor: pointer;
   overflow: hidden;
 
   &:hover,
   &:focus {
-    transition: background-size 2s ease-in;
-    background-size: 1000px;
+    // transition: background-size 2s ease-in;
+    // background-size: 1000px;
 
     div {
       display: none;
