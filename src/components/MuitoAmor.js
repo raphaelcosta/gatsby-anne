@@ -26,7 +26,7 @@ const MuitoAmor = ({ title, content }) => (
     <MuitoAmorComponent>
       <Container>
         <h2>{title}</h2>
-        <p>{content}</p>
+        <P dangerouslySetInnerHTML={{ __html: content }} />
       </Container>
     </MuitoAmorComponent>
   </React.Fragment>
