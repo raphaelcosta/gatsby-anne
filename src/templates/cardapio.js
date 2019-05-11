@@ -145,6 +145,10 @@ const CardapioDescription = styled.div`
   p {
     margin-bottom: calc(1.45rem / 2)
   }
+
+  li {
+    line-height: 1.5;
+  }
 `;
 
 export default class extends React.Component {
