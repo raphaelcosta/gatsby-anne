@@ -136,6 +136,17 @@ const SectionReturn = styled.div`
   }
 `;
 
+const CardapioDescription = styled.div`
+  font: 14px Muli;
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 0 40px;
+  
+  p {
+    margin-bottom: calc(1.45rem / 2)
+  }
+`;
+
 export default class extends React.Component {
   state = {
     isModalEncomendasOpened: false,
@@ -160,7 +171,9 @@ export default class extends React.Component {
         <HeroSection>
           <H1>{pageContext.title}</H1>
           {pageContext.acf.description && (
-            <P dangerouslySetInnerHTML={{ __html: pageContext.acf.description }} />
+            <CardapioDescription
+              dangerouslySetInnerHTML={{ __html: pageContext.acf.description }}
+            />
           )}
           <GreenButton
             whats
