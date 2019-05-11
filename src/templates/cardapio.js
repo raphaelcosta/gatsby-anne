@@ -138,10 +138,10 @@ const SectionReturn = styled.div`
 
 const CardapioDescription = styled.div`
   font: 14px Muli;
-  margin: 0 auto;
+  margin: 15px auto 0;
   max-width: 700px;
   padding: 0 40px;
-  
+
   p {
     margin-bottom: calc(1.45rem / 2)
   }
