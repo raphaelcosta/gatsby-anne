@@ -21,7 +21,7 @@ const P = styled.p`
   max-width: 520px;
 `;
 
-const MuitoAmor = ({ title, content }): React.Node => (
+const MuitoAmor = ({ title, content }) => (
   <React.Fragment>
     <MuitoAmorComponent>
       <Container>
