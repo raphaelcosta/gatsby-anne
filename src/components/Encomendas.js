@@ -294,9 +294,12 @@ class Encomendas extends React.Component {
               <GreenButton
                 whats
                 onClick={() => {
-                  window.location.href = `https://wa.me/5541995958787?text=Oi,%20Anne!%20Gostaria%20de%20fazer%20um%20pedido:%20${
-                    this.state.pedido
-                  }`;
+                  window.open(
+                    `https://wa.me/5541995958787?text=Oi,%20Anne!%20Gostaria%20de%20fazer%20um%20pedido:%20${
+                      this.state.pedido
+                    }`,
+                    '_blank'
+                  );
                 }}
               >
                 Fazer pedido
