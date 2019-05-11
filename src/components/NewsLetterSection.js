@@ -59,6 +59,7 @@ const NewsLetterSectionWapper = styled.section`
 
       input[type='email'] {
         width: 240px;
+        border-radius: 0;
       }
 
       input[type='submit'] {
