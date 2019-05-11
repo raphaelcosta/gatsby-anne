@@ -6,6 +6,12 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+
+  dl {
+    margin: 0;
+    height: 140px;
+  }
+  
   @media (max-width: 960px) {
     max-width: calc(100% - 80px);
   }

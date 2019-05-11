@@ -29,12 +29,15 @@ const Layout = ({ children }) => (
                     address
                     url
                   }
+                  schedule {
+                    title
+                    content
+                  }
                   contact {
                     title
                     email
                     whatsapp
                     fixo
-                    schedule
                     social_networks {
                       facebook
                       instagram

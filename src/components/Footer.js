@@ -80,66 +80,61 @@ const ListElement = styled.dd`
     color: #160203;
   }
 `;
-const Footer = ({ location, contact }) => (
+const Footer = ({ location, contact, schedule }) => (
   <React.Fragment>
     <FooterComponent>
       <Container>
-        <div>
-          <dl>
-            <ListTitle>{location.title}</ListTitle>
-            <ListElement>Anne Schuartz Sweet Maker</ListElement>
-            <ListElement>
-              <a
-                title={location.address}
-                tabIndex={0}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={location.url}
-                dangerouslySetInnerHTML={{ __html: location.address }}
-              />
-            </ListElement>
-          </dl>
-        </div>
-        <div>
-          <dl>
-            <ListTitle>{contact.title}</ListTitle>
-            <ListElement>
-              <Icon mail />
-              <a
-                title="email"
-                target="_blank"
-                tabIndex={0}
-                href={`mailto:${contact.email}`}
-                rel="noopener noreferrer"
-              >
-                {contact.email}
-              </a>
-            </ListElement>
-            <ListElement>
-              <Icon whats />
-              <a
-                title="Envie-nos uma mensagem via whatsapp"
-                tabIndex={0}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`https://api.whatsapp.com/send?phone=${contact.whatsapp}`}
-              >
-                {contact.whatsapp}
-              </a>
-            </ListElement>
-            <ListElement>
-              <Icon phone />
-              <a title="Ligue para a Anne" href={`tel:${contact.fixo}`} rel="noopener noreferrer">
-                {contact.fixo}
-              </a>
-            </ListElement>
-          </dl>
-        </div>
-        <div>
-          <dl>
-            <ListElement dangerouslySetInnerHTML={{ __html: contact.schedule }} />
-          </dl>
-        </div>
+        <dl>
+          <ListTitle>{location.title}</ListTitle>
+          <ListElement>Anne Schuartz Sweet Maker</ListElement>
+          <ListElement>
+            <a
+              title={location.address}
+              tabIndex={0}
+              target="_blank"
+              rel="noopener noreferrer"
+              href={location.url}
+              dangerouslySetInnerHTML={{ __html: location.address }}
+            />
+          </ListElement>
+        </dl>
+        <dl>
+          <ListTitle>{contact.title}</ListTitle>
+          <ListElement>
+            <Icon mail />
+            <a
+              title="email"
+              target="_blank"
+              tabIndex={0}
+              href={`mailto:${contact.email}`}
+              rel="noopener noreferrer"
+            >
+              {contact.email}
+            </a>
+          </ListElement>
+          <ListElement>
+            <Icon whats />
+            <a
+              title="Envie-nos uma mensagem via whatsapp"
+              tabIndex={0}
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://api.whatsapp.com/send?phone=${contact.whatsapp}`}
+            >
+              {contact.whatsapp}
+            </a>
+          </ListElement>
+          <ListElement>
+            <Icon phone />
+            <a title="Ligue para a Anne" href={`tel:${contact.fixo}`} rel="noopener noreferrer">
+              {contact.fixo}
+            </a>
+          </ListElement>
+        </dl>
+        <dl>
+          <ListTitle>{schedule.title}</ListTitle>
+          <ListElement dangerouslySetInnerHTML={{ __html: schedule.content }} />
+        </dl>
       </Container>
       <SocialNetworks>
         <a
