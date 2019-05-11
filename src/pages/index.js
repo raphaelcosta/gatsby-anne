@@ -85,25 +85,6 @@ const IndexPage = () => (
                     image_4
                     image_5
                   }
-                  footer {
-                    location {
-                      title
-                      address
-                      url
-                    }
-                    contact {
-                      title
-                      email
-                      whatsapp
-                      fixo
-                      schedule
-                      social_networks {
-                        facebook
-                        instagram
-                        spotify
-                      }
-                    }
-                  }
                 }
               }
             }
