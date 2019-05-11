@@ -20,10 +20,6 @@ const CardapioBox = styled(Link)`
     // transition: background-size 2s ease-in;
     // background-size: 1000px;
 
-    div {
-      display: none;
-    }
-
     p {
       transition: all 0.5s ease;
     }
@@ -35,7 +31,7 @@ const CardapioBox = styled(Link)`
     bottom: 20px;
     left: 20px;
     color: #FFF;
-    font: 600 35px Muli;
+    font: 600 35px Abril;
     z-index: 10;
   }
 `

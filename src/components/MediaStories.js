@@ -27,10 +27,6 @@ const CardapioBox = styled.button`
     // transition: background-size 2s ease-in;
     // background-size: 1000px;
 
-    div {
-      display: none;
-    }
-
     p {
       transition: all 0.5s ease;
     }

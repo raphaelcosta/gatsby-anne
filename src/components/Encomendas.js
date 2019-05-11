@@ -17,8 +17,9 @@ const Overlay = styled.div`
   right: 0;
   top: 0;
   width: 100%
-  z-index: 5;
+  z-index: 15;
 `;
+
 const ModalContainer = styled.div`
   align-items: center;
   bottom: 0;

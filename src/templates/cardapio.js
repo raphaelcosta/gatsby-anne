@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import Container from '../components/Container';
 import { GreenButton } from '../components/Button';
 import ModalEncomendas from '../components/ModalEncomendas';
+import ConfiraCardapioBox from '../components/ConfiraCardapioBox';
 
 const CardapioBoxContainer = styled.div`
   background: #210305;
@@ -22,19 +23,11 @@ const CardapioBox = styled.div`
   background-position: center;
   position: relative;
   margin: 0 auto;
-  // transition: background-size 2s ease-in;
   cursor: pointer;
   overflow: hidden;
 
   &:hover,
   &:focus {
-    // transition: background-size 2s ease-in;
-    // background-size: 1000px;
-
-    div {
-      display: none;
-    }
-
     p {
       transition: all 0.5s ease;
     }
@@ -46,7 +39,7 @@ const CardapioBox = styled.div`
     bottom: 20px;
     left: 20px;
     color: #fff;
-    font: 600 35px Muli;
+    font: 600 35px Abril;
     z-index: 10;
   }
 `;
@@ -164,7 +157,6 @@ export default class extends React.Component {
             <StyledOverlay />
           </CardapioBox>
         </CardapioBoxContainer>
-
         <HeroSection>
           <H1>{pageContext.title}</H1>
           {pageContext.acf.description && (
