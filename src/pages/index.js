@@ -13,6 +13,7 @@ import NossoCardapio from '../components/NossoCardapio';
 import SEO from '../components/seo';
 import VejaMais from '../components/VejaMais';
 import MediaStories from '../components/MediaStories';
+import NewsLetterSection from '../components/NewsLetterSection';
 
 const IndexPage = () => (
   <Layout>
@@ -108,6 +109,7 @@ const IndexPage = () => (
             <MediaStories />
             <MuitoAmor {...testimonyData} />
             <VejaMais {...moreSectionData} />
+            <NewsLetterSection />
           </React.Fragment>
         );
       }}
