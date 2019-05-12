@@ -13,6 +13,10 @@ const StoriesContainer = styled.div`
   width: 100%;
   height: 100%;
   background: rgb(17, 17, 17);
+
+  div {
+    max-width: 90vw !important;
+  }
 `;
 
 const CloseAnchor = styled.a`
@@ -39,11 +43,27 @@ class StoriesComponent extends React.Component {
   render() {
     const stories = [
       {
+        url: 'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/05/CAPA.jpg',
+        type: 'photo',
+      },
+      {
+        url: 'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/04/Sandubinha.jpg',
+        type: 'photo',
+      },
+      {
         url:
-          'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/04/y2mate.com-anne_schuartz_l_encomendas_de_bolos_tortas_e_doces_l_pascoa_2019_1s_ElLKv5-Q_1080p.mp4',
-        type: 'video',
-        width: 330,
-        height: 650,
+          'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/05/3-Palha-Italiana.jpg',
+        type: 'photo',
+      },
+      {
+        url:
+          'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/05/2-Bolo-de-cenoura.jpg',
+        type: 'photo',
+      },
+      {
+        url:
+          'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/05/1-Vitrine-com-mais-de-30-opções-de-brigadeiros.jpg',
+        type: 'photo',
       },
     ];
     const { toggleMediaStories } = this.props;
@@ -64,7 +84,7 @@ class StoriesComponent extends React.Component {
               src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/close.svg"
             />
           </CloseAnchor>
-          <Stories stories={stories} defaultInterval={1500} width={330} height={650} />
+          <Stories stories={stories} defaultInterval={2500} width={1200} height={650} />
         </StoriesContainer>
       </Portal>
     );
