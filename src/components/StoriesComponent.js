@@ -47,6 +47,8 @@ class StoriesComponent extends React.Component {
       url: media.url.source_url,
       header: {
         heading: media.title,
+        profileImage:
+          'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/05/30077579_196638531065548_5990005547007475712_n.jpg',
       },
     }));
 
