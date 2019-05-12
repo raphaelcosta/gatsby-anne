@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { query, StaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import { GreenButton } from './Button';
@@ -88,6 +88,7 @@ class ConfiraCardapioBox extends React.Component {
                     tabIndex={0}
                     target="_blank"
                     title="Confira o cardápio completo"
+                    rel="noopener noreferrer"
                   >
                     Confira o cardápio completo
                   </a>

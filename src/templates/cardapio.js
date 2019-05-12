@@ -5,55 +5,7 @@ import Layout from '../components/layout';
 import Container from '../components/Container';
 import { GreenButton } from '../components/Button';
 import ModalEncomendas from '../components/ModalEncomendas';
-import ConfiraCardapioBox from '../components/ConfiraCardapioBox';
-
-const CardapioBoxContainer = styled.div`
-  background: #210305;
-  margin-top: 70px;
-`;
-
-const CardapioBox = styled.div`
-  height: 450px;
-  width: 100%;
-  display: flex;
-  background: url('https://s3-sa-east-1.amazonaws.com/anneschuartz/site/CAPA_BRIGADEIROS.jpg')
-    no-repeat;
-  ${props => props.backgroundUrl && `background: url(${props.backgroundUrl}) no-repeat;`}
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin: 0 auto;
-  cursor: pointer;
-  overflow: hidden;
-
-  &:hover,
-  &:focus {
-    p {
-      transition: all 0.5s ease;
-    }
-  }
-
-  p {
-    margin: 0;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: #fff;
-    font: 600 35px Abril;
-    z-index: 10;
-  }
-`;
-
-const StyledOverlay = styled.div`
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
-  bottom: 0;
-  height: 150px;
-  left: 0;
-  opacity: 0.5;
-  position: absolute;
-  width: 100%;
-  z-idex: 5;
-`;
+import MediaStories from '../components/MediaStories';
 
 const HeroSection = styled.section`
   padding: 70px 0;
@@ -69,15 +21,6 @@ const H1 = styled.h1`
   margin: 0 auto;
   text-align: center;
   padding: 10px 0;
-`;
-
-const P = styled.p`
-  font-weight: 400;
-  font: 14px Muli;
-  color: #624244;
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 0 24px;
 `;
 
 const TableSection = styled.div`
@@ -143,7 +86,7 @@ const CardapioDescription = styled.div`
   padding: 0 40px;
 
   p {
-    margin-bottom: calc(1.45rem / 2)
+    margin-bottom: calc(1.45rem / 2);
   }
 
   li {
@@ -165,13 +108,10 @@ export default class extends React.Component {
   render() {
     const { isModalEncomendasOpened } = this.state;
     const { pageContext } = this.props;
+
     return (
       <Layout>
-        <CardapioBoxContainer>
-          <CardapioBox backgroundUrl={pageContext.featured_media.source_url}>
-            <StyledOverlay />
-          </CardapioBox>
-        </CardapioBoxContainer>
+        <MediaStories backgroundUrl={pageContext.featured_media.source_url} title="Ver fotos" galleryData={pageContext.acf.media_gallery} />
         <HeroSection>
           <H1>{pageContext.title}</H1>
           {pageContext.acf.description && (

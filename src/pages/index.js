@@ -1,10 +1,7 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import Helmet from 'react-helmet';
-import { Link } from 'gatsby';
 
 import { graphql, StaticQuery } from 'gatsby';
-import Stories from 'react-insta-stories';
 
 import Hero from '../components/hero';
 import Layout from '../components/layout';
@@ -114,7 +111,7 @@ const IndexPage = () => (
             />
             <Hero title={wordpressData.home_title} />
             <NossoCardapio {...cardapioData} />
-            <MediaStories galleryData={galleryData} />
+            <MediaStories title="Ver galeria" galleryData={galleryData} />
             <MuitoAmor {...testimonyData} />
             <VejaMais {...moreSectionData} />
             <NewsLetterSection />

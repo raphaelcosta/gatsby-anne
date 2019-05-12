@@ -72,11 +72,12 @@ class MediaStories extends React.Component {
 
   render() {
     const { isVideoOpened } = this.state;
-    const { galleryData } = this.props;
+    const { galleryData, title, backgroundUrl } = this.props;
 
     return (
       <MediaStoriesContainer>
         <CardapioBox
+          backgroundUrl={backgroundUrl}
           onClick={e => {
             e.preventDefault();
             this.toggleMediaStories();
@@ -85,7 +86,7 @@ class MediaStories extends React.Component {
           <StyledOverlay />
           <p>
             <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/lupa.svg" />
-            Ver galeria
+            {title}
           </p>
         </CardapioBox>
         {isVideoOpened && (

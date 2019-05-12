@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import { Portal } from 'react-portal';
 import styled from 'styled-components';
 

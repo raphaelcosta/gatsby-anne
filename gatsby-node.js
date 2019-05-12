@@ -84,6 +84,12 @@ exports.createPages = ({ graphql, actions }) => {
                     acf {
                       item_cardapio_ativado
                       description
+                      media_gallery {
+                        title
+                        url {
+                          source_url
+                        }
+                      }
                       products {
                         categories {
                           name

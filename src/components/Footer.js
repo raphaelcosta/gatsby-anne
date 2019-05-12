@@ -105,9 +105,9 @@ const Footer = ({ location, contact, schedule }) => (
             <a
               title="email"
               target="_blank"
+              rel="noopener noreferrer"
               tabIndex={0}
               href={`mailto:${contact.email}`}
-              rel="noopener noreferrer"
             >
               {contact.email}
             </a>
@@ -140,6 +140,7 @@ const Footer = ({ location, contact, schedule }) => (
         <a
           tabIndex={0}
           target="_blank"
+          rel="noopener noreferrer"
           title="Visite o nosso instagram"
           href={contact.social_networks.instagram}
         >
@@ -148,6 +149,7 @@ const Footer = ({ location, contact, schedule }) => (
         <a
           tabIndex={0}
           target="_blank"
+          rel="noopener noreferrer"
           title="Visite o nosso facebook"
           href={contact.social_networks.facebook}
         >
@@ -156,6 +158,7 @@ const Footer = ({ location, contact, schedule }) => (
         <a
           tabIndex={0}
           target="_blank"
+          rel="noopener noreferrer"
           title="Escute o nosso playlist"
           href={contact.social_networks.spotify}
         >

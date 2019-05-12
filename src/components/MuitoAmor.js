@@ -14,11 +14,11 @@ const MuitoAmorComponent = styled.section`
       margin-bottom: 40px;
     }
   }
-`;
 
-const P = styled.p`
-  font: 14px Muli;
-  max-width: 520px;
+  .ann-text {
+    font: 14px Muli;
+    max-width: 520px;
+  }
 `;
 
 const MuitoAmor = ({ title, content }) => (
@@ -26,7 +26,7 @@ const MuitoAmor = ({ title, content }) => (
     <MuitoAmorComponent>
       <Container>
         <h2>{title}</h2>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <div className="ann-text" dangerouslySetInnerHTML={{ __html: content }} />
       </Container>
     </MuitoAmorComponent>
   </React.Fragment>
