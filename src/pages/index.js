@@ -73,6 +73,13 @@ const IndexPage = () => (
                     title
                     description
                   }
+                  gallery {
+                    title
+                    url {
+                      id
+                      source_url
+                    }
+                  }
                   testimony {
                     title
                     content
@@ -97,6 +104,7 @@ const IndexPage = () => (
         const cardapioData = wordpressData.cardapio;
         const testimonyData = wordpressData.testimony;
         const moreSectionData = wordpressData.more_section;
+        const galleryData = wordpressData.gallery;
 
         return (
           <React.Fragment>
@@ -106,7 +114,7 @@ const IndexPage = () => (
             />
             <Hero title={wordpressData.home_title} />
             <NossoCardapio {...cardapioData} />
-            <MediaStories />
+            <MediaStories galleryData={galleryData} />
             <MuitoAmor {...testimonyData} />
             <VejaMais {...moreSectionData} />
             <NewsLetterSection />

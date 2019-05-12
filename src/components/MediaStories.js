@@ -72,6 +72,7 @@ class MediaStories extends React.Component {
 
   render() {
     const { isVideoOpened } = this.state;
+    const { galleryData } = this.props;
 
     return (
       <MediaStoriesContainer>
@@ -87,7 +88,12 @@ class MediaStories extends React.Component {
             Ver galeria
           </p>
         </CardapioBox>
-        {isVideoOpened && <StoriesComponent toggleMediaStories={this.toggleMediaStories} />}
+        {isVideoOpened && (
+          <StoriesComponent
+            galleryData={galleryData}
+            toggleMediaStories={this.toggleMediaStories}
+          />
+        )}
       </MediaStoriesContainer>
     );
   }
