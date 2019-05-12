@@ -15,7 +15,7 @@ const MenuMobileWrapper = styled.div`
   left: 0;
   overflow: auto;
   padding: 80px 0;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   width: 100vw;
