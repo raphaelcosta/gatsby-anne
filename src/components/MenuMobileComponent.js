@@ -20,6 +20,8 @@ const MenuMobileWrapper = styled.div`
   top: 0;
   width: 100vw;
   z-index: 50;
+  max-height: 100%;
+  overflow-y: scroll;
 `;
 
 const HeaderImage = styled.img`
