@@ -56,7 +56,7 @@ const Layout = ({ children }) => (
       return (
         <React.Fragment>
           <GlobalStyles />
-          <Header />
+          <Header socialNetworks={footerData.contact} />
           <main>{children}</main>
           <Footer {...footerData} />
         </React.Fragment>
