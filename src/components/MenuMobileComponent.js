@@ -5,20 +5,21 @@ import { Portal } from 'react-portal';
 import cn from 'classnames';
 
 const MenuMobileWrapper = styled.div`
-  position: fixed;
-  width: 100vw;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  align-items: center;
   background: #210305;
-  z-index: 50;
-  padding: 80px 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: flex-start;
-  align-items: center;
+  left: 0;
+  overflow-y: auto;
+  padding: 80px 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 50;
 `;
 
 const HeaderImage = styled.img`
