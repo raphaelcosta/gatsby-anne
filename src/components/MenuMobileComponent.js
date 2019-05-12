@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
-import cn from 'classNames';
+import cn from 'classnames';
 
 const MenuMobileWrapper = styled.div`
   position: fixed;
