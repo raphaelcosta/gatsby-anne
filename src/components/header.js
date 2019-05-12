@@ -25,6 +25,22 @@ const HeaderComponent = styled.header`
     flex: 1;
     display: none;
     justify-content: flex-end;
+    postion: relative;
+
+    button {
+      background: transparent;
+      border: 0;
+      
+      &:before {
+        content: '';
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 20px;
+        background: url('https://s3-sa-east-1.amazonaws.com/anneschuartz/site/hamburger.svg')
+          no-repeat center center;
+      }
+    }
   }
 
   @media only screen and (max-width: 990px) {
@@ -202,7 +218,7 @@ class Header extends React.Component {
             </a>
           </div>
           <div className="ann-hamburger-mobile">
-            <button onClick={() => this.toggleMenuMobile()}>Toggle</button>
+            <button onClick={() => this.toggleMenuMobile()} />
           </div>
         </Container>
         {menuOpened && <MenuMobile toggleMenuMobile={this.toggleMenuMobile} />}
