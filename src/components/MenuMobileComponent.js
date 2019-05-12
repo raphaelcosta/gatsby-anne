@@ -128,7 +128,7 @@ class MenuMobileComponent extends React.Component {
                 </Link>
                 {menuItems.map(category => {
                   return category.node.acf.item_cardapio_ativado === true ? (
-                    <Link to="/">{category.node.title}</Link>
+                    <Link to={`/cardapio/${category.node.slug}`}>{category.node.title}</Link>
                   ) : null;
                 })}
               </SubMenu>

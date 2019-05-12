@@ -11,6 +11,7 @@ const MenuMobile = ({ toggleMenuMobile }) => (
             node {
               id
               title
+              slug
               acf {
                 item_cardapio_ativado
               }
