@@ -30,7 +30,7 @@ const HeaderComponent = styled.header`
     button {
       background: transparent;
       border: 0;
-      
+
       &:before {
         content: '';
         width: 30px;
@@ -221,7 +221,12 @@ class Header extends React.Component {
             <button onClick={() => this.toggleMenuMobile()} />
           </div>
         </Container>
-        {menuOpened && <MenuMobile toggleMenuMobile={this.toggleMenuMobile} />}
+        {menuOpened && (
+          <MenuMobile
+            socialNetworks={socialNetworks.social_networks}
+            toggleMenuMobile={this.toggleMenuMobile}
+          />
+        )}
       </HeaderComponent>
     );
   }

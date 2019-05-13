@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import MenuMobileComponent from './MenuMobileComponent';
 
-const MenuMobile = ({ toggleMenuMobile }) => (
+const MenuMobile = ({ toggleMenuMobile, socialNetworks }) => (
   <StaticQuery
     query={graphql`
       {
@@ -23,6 +23,7 @@ const MenuMobile = ({ toggleMenuMobile }) => (
     render={props => (
       <MenuMobileComponent
         menuItems={props.allWordpressWpCardapio.edges}
+        socialNetworks={socialNetworks}
         toggleMenuMobile={toggleMenuMobile}
       />
     )}
