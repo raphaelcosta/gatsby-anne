@@ -102,46 +102,48 @@ class MenuMobileComponent extends React.Component {
     return (
       <Portal>
         <MenuMobileWrapper>
-          <CloseButton title="Fechar" tabIndex={0} onClick={() => toggleMenuMobile()}>
-            <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/close.svg" />
-          </CloseButton>
-          <HeaderImage
-            alt="Anne Schuartz"
-            src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/anne-logo-completo.svg"
-          />
-          <MenuContent>
-            <Link onClick={() => toggleMenuMobile()} to="/">
-              Página Inicial
-            </Link>
-            <a
-              className={cn('ann-menu-link', { 'ann-active': menuItemsColapsed })}
-              onClick={() =>
-                this.setState(prevState => ({
-                  menuItemsColapsed: !prevState.menuItemsColapsed,
-                }))
-              }
-            >
-              Cardápio
-            </a>
-            {menuItemsColapsed && (
-              <SubMenu>
-                <Link title="Ver tudo" to="/cardapio">
-                  Ver tudo
-                </Link>
-                {menuItems.map(category => {
-                  return category.node.acf.item_cardapio_ativado === true ? (
-                    <Link to={`/cardapio/${category.node.slug}`}>{category.node.title}</Link>
-                  ) : null;
-                })}
-              </SubMenu>
-            )}
-            <Link onClick={() => toggleMenuMobile()} title="Sobre a Anne" to="/sobre-anne">
-              Sobre a Anne
-            </Link>
-            <Link onClick={() => toggleMenuMobile()} title="Contato" to="/contato">
-              Contato
-            </Link>
-          </MenuContent>
+          <div>
+            <CloseButton title="Fechar" tabIndex={0} onClick={() => toggleMenuMobile()}>
+              <img src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/close.svg" />
+            </CloseButton>
+            <HeaderImage
+              alt="Anne Schuartz"
+              src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/anne-logo-completo.svg"
+            />
+            <MenuContent>
+              <Link onClick={() => toggleMenuMobile()} to="/">
+                Página Inicial
+              </Link>
+              <a
+                className={cn('ann-menu-link', { 'ann-active': menuItemsColapsed })}
+                onClick={() =>
+                  this.setState(prevState => ({
+                    menuItemsColapsed: !prevState.menuItemsColapsed,
+                  }))
+                }
+              >
+                Cardápio
+              </a>
+              {menuItemsColapsed && (
+                <SubMenu>
+                  <Link title="Ver tudo" to="/cardapio">
+                    Ver tudo
+                  </Link>
+                  {menuItems.map(category => {
+                    return category.node.acf.item_cardapio_ativado === true ? (
+                      <Link to={`/cardapio/${category.node.slug}`}>{category.node.title}</Link>
+                    ) : null;
+                  })}
+                </SubMenu>
+              )}
+              <Link onClick={() => toggleMenuMobile()} title="Sobre a Anne" to="/sobre-anne">
+                Sobre a Anne
+              </Link>
+              <Link onClick={() => toggleMenuMobile()} title="Contato" to="/contato">
+                Contato
+              </Link>
+            </MenuContent>
+          </div>
         </MenuMobileWrapper>
       </Portal>
     );
