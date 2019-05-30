@@ -141,7 +141,7 @@ const HeaderImage = styled.img`
 
 const HeaderImageMobile = styled.img`
   transition: 0.5s ease;
-  width: 36px;
+  width: 90px;
 
   &:hover,
   &:focus {
@@ -174,7 +174,7 @@ class Header extends React.Component {
             <HeaderImageMobile
               className="ann-header-image-mobile"
               alt="Anne Schuartz"
-              src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/logo.svg"
+              src="https://s3-sa-east-1.amazonaws.com/anneschuartz/site/anne-logo-completo.svg"
             />
           </Link>
           <div className="ann-menu-elments">
@@ -184,7 +184,7 @@ class Header extends React.Component {
             <Link title="Cardápio" to="/cardapio">
               Cardápio
             </Link>
-            <Link title="Sobre a Anne" to="/">
+            <Link title="Sobre a Anne" to="/sobre-a-anne">
               Sobre a Anne
             </Link>
             <Link title="Contato" to="/">
