@@ -150,6 +150,8 @@ const SectionAnne = styled.section`
   .ann-wrapper {
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
+    z-index: 5;
 
     @media screen and (max-width: 600px) {
       max-width: calc(100% - 60px);
@@ -160,6 +162,8 @@ const SectionAnne = styled.section`
 const SectionDuvida = styled.section`
   text-align: center;
   padding: 100px 0 50px;
+  position: relative;
+  z-index: 5;
 
   h2 {
     color: #210305;
