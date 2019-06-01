@@ -199,7 +199,7 @@ class MenuMobileComponent extends React.Component {
                   })}
                 </SubMenu>
               )}
-              <Link onClick={() => toggleMenuMobile()} title="Sobre a Anne" to="/">
+              <Link onClick={() => toggleMenuMobile()} title="Sobre a Anne" to="/sobre-a-anne">
                 Sobre a Anne
               </Link>
               <Link onClick={() => toggleMenuMobile()} title="Contato" to="/">
