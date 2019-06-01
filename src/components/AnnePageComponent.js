@@ -106,6 +106,8 @@ const NaMidia = styled.section`
 
       img {
         margin-bottom: 20px;
+        opacity: 0.4;
+        
         @media screen and (max-width: 600px) {
           max-width: 180px;
         }
@@ -227,13 +229,13 @@ class AnnePageComponent extends React.Component {
           <div className="ann-wrapper">
             <h2>{wordpressData.media_section.title}</h2>
             <div className="ann-media">
-              <a href={wordpressData.media_section.url_1}>
+              <a target="_blank" href={wordpressData.media_section.url_1}>
                 <img src={wordpressData.media_section.image_1.source_url} />
               </a>
-              <a href={wordpressData.media_section.url_2}>
+              <a target="_blank" href={wordpressData.media_section.url_2}>
                 <img src={wordpressData.media_section.image_2.source_url} />
               </a>
-              <a href={wordpressData.media_section.url_3}>
+              <a target="_blank" href={wordpressData.media_section.url_3}>
                 <img src={wordpressData.media_section.image_3.source_url} />
               </a>
             </div>
