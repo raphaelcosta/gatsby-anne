@@ -107,7 +107,7 @@ const NaMidia = styled.section`
       img {
         margin-bottom: 20px;
         opacity: 0.4;
-        
+
         @media screen and (max-width: 600px) {
           max-width: 180px;
         }
@@ -124,8 +124,18 @@ const SectionCover = styled.section`
 
 const SectionAnne = styled.section`
   padding: 60px 0 160px;
-  background: url('http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/06/pink-watery-texture-1-1.png')
-    repeat center bottom;
+  background: #f1eae5;
+  position: relative;
+
+  .ann-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: url('http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/06/pink-watery-texture-1-1.png')
+      repeat center bottom;
+  }
 
   h2 {
     margin-bottom: 30px;
@@ -243,6 +253,7 @@ class AnnePageComponent extends React.Component {
         </NaMidia>
         <SectionCover background={wordpressData.section_image.source_url} />
         <SectionAnne>
+          <div className="ann-overlay" />
           <div className="ann-wrapper">
             <h2>{wordpressData.section_anne.title}</h2>
             <p
