@@ -16,6 +16,14 @@ const IndexPage = () => (
                 title
                 description
                 intro
+                gallery_place {
+                  cover {
+                    source_url
+                  }
+                  images {
+                    source_url
+                  }
+                }
                 imagine_section {
                   title
                   description

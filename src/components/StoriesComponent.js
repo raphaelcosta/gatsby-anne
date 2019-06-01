@@ -42,15 +42,25 @@ const CloseAnchor = styled.a`
 class StoriesComponent extends React.Component {
   render() {
     const { toggleMediaStories, galleryData } = this.props;
-    const galleryFormattedData = galleryData.map(media => ({
-      ...media,
-      url: media.url.source_url,
-      header: {
-        heading: media.title,
-        profileImage:
-          'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/05/30077579_196638531065548_5990005547007475712_n.jpg',
-      },
-    }));
+    
+    const galleryFormattedData = galleryData.images
+      ? galleryData.images.map(media => ({
+          url: media.source_url,
+          header: {
+            heading: media.title,
+            profileImage:
+              'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/05/30077579_196638531065548_5990005547007475712_n.jpg',
+          },
+        }))
+      : galleryData.map(media => ({
+          ...media,
+          url: media.url.source_url,
+          header: {
+            heading: media.title,
+            profileImage:
+              'http://anneschuartz2.hospedagemdesites.ws/wp-content/uploads/2019/05/30077579_196638531065548_5990005547007475712_n.jpg',
+          },
+        }));
 
     return (
       <Portal>

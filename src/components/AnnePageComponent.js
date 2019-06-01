@@ -195,6 +195,11 @@ class AnnePageComponent extends React.Component {
             <p dangerouslySetInnerHTML={{ __html: wordpressData.description }} />
           </div>
         </HeroSection>
+        <MediaStories
+          backgroundUrl={wordpressData.gallery_place.cover.source_url}
+          title="Ver galeria"
+          galleryData={wordpressData.gallery_place}
+        />
         <IntroSection>
           <p dangerouslySetInnerHTML={{ __html: wordpressData.intro }} />
         </IntroSection>
