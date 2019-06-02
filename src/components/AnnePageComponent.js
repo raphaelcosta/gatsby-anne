@@ -1,17 +1,12 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import parse from 'html-react-parser';
 
-import Hero from './hero';
 import Layout from './layout';
-import MuitoAmor from './MuitoAmor';
-import NossoCardapio from './NossoCardapio';
 import SEO from './seo';
-import VejaMais from './VejaMais';
 import MediaStories from './MediaStories';
-import NewsLetterSection from './NewsLetterSection';
-import { DimWave } from './Wave';
 import ModalEncomendas from './ModalEncomendas';
-import { GreenButton } from './Button';
+import ImagineSection from './ImagineSection';
 
 const HeroSection = styled.section`
   background: url('https://s3-sa-east-1.amazonaws.com/anneschuartz/pattern.png') repeat center;
@@ -48,37 +43,6 @@ const IntroSection = styled.section`
   @media screen and (max-width: 600px) {
     p {
       max-width: calc(100% - 60px);
-    }
-  }
-`;
-
-const ImagineSection = styled.section`
-  padding: 80px 0;
-  background: url('https://s3-sa-east-1.amazonaws.com/anneschuartz/pattern.png') repeat center;
-
-  .ann-wrapper {
-    max-width: 600px;
-    margin: 0 auto;
-
-    button {
-      margin: 0 auto;
-    }
-
-    @media screen and (max-width: 600px) {
-      max-width: calc(100% - 60px);
-    }
-
-    span {
-      margin: 40px auto;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-    }
-
-    p {
-      font: 14px Muli;
-      line-height: 1.7;
     }
   }
 `;
@@ -201,6 +165,7 @@ class AnnePageComponent extends React.Component {
   render() {
     const { wordpressData } = this.props;
     const { isModalEncomendasOpened } = this.state;
+    const introText = wordpressData.intro;
 
     return (
       <Layout>
@@ -208,7 +173,7 @@ class AnnePageComponent extends React.Component {
         <HeroSection>
           <div className="as-hero" style={{ padding: '176px 0', margin: '0 auto', maxWidth: 960 }}>
             <H1>{wordpressData.title}</H1>
-            <p dangerouslySetInnerHTML={{ __html: wordpressData.description }} />
+            <p>{parse(wordpressData.description)}</p>
           </div>
         </HeroSection>
         <MediaStories
@@ -217,39 +182,24 @@ class AnnePageComponent extends React.Component {
           galleryData={wordpressData.gallery_place}
         />
         <IntroSection>
-          <p dangerouslySetInnerHTML={{ __html: wordpressData.intro }} />
+          <p>{parse(introText)}</p>
         </IntroSection>
-        <ImagineSection>
-          <div className="ann-wrapper">
-            <h2>{wordpressData.imagine_section.title}</h2>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: wordpressData.imagine_section.description,
-              }}
-            />
-            <DimWave />
-            <GreenButton
-              cta
-              whats
-              title="Pedir sua encomemda"
-              tabIndex={0}
-              onClick={this.toggleModalEncomendasState}
-            >
-              Pedir sua encomemda
-            </GreenButton>
-          </div>
-        </ImagineSection>
+        <ImagineSection
+          toggleModalEncomendas={this.toggleModalEncomendasState}
+          title={wordpressData.imagine_section.title}
+          description={wordpressData.imagine_section.description}
+        />
         <NaMidia>
           <div className="ann-wrapper">
             <h2>{wordpressData.media_section.title}</h2>
             <div className="ann-media">
-              <a target="_blank" href={wordpressData.media_section.url_1}>
+              <a target="_blank" rel="noopener noreferrer" href={wordpressData.media_section.url_1}>
                 <img src={wordpressData.media_section.image_1.source_url} />
               </a>
-              <a target="_blank" href={wordpressData.media_section.url_2}>
+              <a target="_blank" rel="noopener noreferrer" href={wordpressData.media_section.url_2}>
                 <img src={wordpressData.media_section.image_2.source_url} />
               </a>
-              <a target="_blank" href={wordpressData.media_section.url_3}>
+              <a target="_blank" rel="noopener noreferrer" href={wordpressData.media_section.url_3}>
                 <img src={wordpressData.media_section.image_3.source_url} />
               </a>
             </div>
@@ -260,11 +210,7 @@ class AnnePageComponent extends React.Component {
           <div className="ann-overlay" />
           <div className="ann-wrapper">
             <h2>{wordpressData.section_anne.title}</h2>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: wordpressData.section_anne.description,
-              }}
-            />
+            <p>{parse(wordpressData.section_anne.description)}</p>
           </div>
           <SectionDuvida>
             <h2>Ficou com alguma dúvida?</h2>
