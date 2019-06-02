@@ -95,14 +95,21 @@ const AddMore = styled.a`
   display: flex;
   justify-content: center;
   margin-top: 14px;
-  opacity: 0.3;
-  padding: 38px 0;
+  padding: 33px 0;
   transition: all 0.5s ease;
   width: 100%;
 
+  img {
+    margin-right: 5px;
+  }
+
   p {
     margin: 0;
+    color: #dc8c86;
+    font: 16px Muli;
+    font-weight: bold;
   }
+
   &:hover,
   &:focus {
     opacity: 0.5;
