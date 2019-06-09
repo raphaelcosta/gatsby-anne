@@ -1,10 +1,12 @@
 import * as React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import Icon from './Icon';
 import Container from './Container';
 import MenuMobile from './MenuMobile';
+import DropdownMenu from './DropdownMenu';
 
 const HeaderComponent = styled.header`
   alignitems: center;
@@ -59,21 +61,27 @@ const HeaderComponent = styled.header`
   }
 
   .ann-menu-elments {
+    position: relative;
     flex: 1;
     display: flex;
     justify-content: space-around;
     margin: 0 100px;
 
-    a {
+    a,
+    button {
       text-decoration: none;
       color: #dfd2ad;
       font: 600 16px Muli;
       transition: 0.5s ease;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      outline: 0;
 
       &:hover,
       &:focus {
         transition: 0.5s ease;
-        opacity: 0.5;
+        color: rgba(223, 210, 173, 0.50);
       }
     }
   }
@@ -152,15 +160,20 @@ const HeaderImageMobile = styled.img`
 class Header extends React.Component {
   state = {
     menuOpened: false,
+    dropdownCardapioOpened: false,
   };
 
   toggleMenuMobile = () => {
     this.setState(prevState => ({ menuOpened: !prevState.menuOpened }));
   };
 
+  toggleMenuCardapio = () => {
+    this.setState(prevState => ({ dropdownCardapioOpened: !prevState.dropdownCardapioOpened }));
+  };
+
   render() {
     const { socialNetworks } = this.props;
-    const { menuOpened } = this.state;
+    const { menuOpened, dropdownCardapioOpened } = this.state;
 
     return (
       <HeaderComponent>
@@ -181,9 +194,32 @@ class Header extends React.Component {
             <Link title="Página Inicial" to="/">
               Página Inicial
             </Link>
-            <Link title="Cardápio" to="/cardapio">
+            <button onClick={this.toggleMenuCardapio} title="Cardápio">
               Cardápio
-            </Link>
+              {dropdownCardapioOpened && (
+                <StaticQuery
+                  query={graphql`
+                    {
+                      allWordpressWpCardapio {
+                        edges {
+                          node {
+                            id
+                            title
+                            slug
+                            acf {
+                              item_cardapio_ativado
+                            }
+                          }
+                        }
+                      }
+                    }
+                  `}
+                  render={props => (
+                    <DropdownMenu handleClickOutside={this.toggleMenuCardapio} {...props} />
+                  )}
+                />
+              )}
+            </button>
             <Link title="Sobre a Anne" to="/sobre-a-anne">
               Sobre a Anne
             </Link>
