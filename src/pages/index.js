@@ -80,6 +80,7 @@ const IndexPage = () => (
                   testimony {
                     title
                     content
+                    content_2
                   }
                   more_section {
                     title
