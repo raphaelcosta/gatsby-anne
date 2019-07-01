@@ -82,11 +82,21 @@ const IndexPage = () => (
                   more_section {
                     title
                     description
-                    image_1
-                    image_2
-                    image_3
-                    image_4
-                    image_5
+                    image_1 {
+                      source_url
+                    }
+                    image_2 {
+                      source_url
+                    }
+                    image_3 {
+                      source_url
+                    }
+                    image_4 {
+                      source_url
+                    }
+                    image_5 {
+                      source_url
+                    }
                   }
                 }
               }

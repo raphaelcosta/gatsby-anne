@@ -40,31 +40,41 @@ const VejaMais = ({ title, description, image_1, image_2, image_3, image_4, imag
       <P dangerouslySetInnerHTML={{ __html: description }} />
       <SwiperContainer>
         <Swiper>
-          <div style={{ width: 120 }}>
-            <Link to="/cardapio">
-              <img style={{ width: 120 }} src={image_1} />
-            </Link>
-          </div>
-          <div style={{ width: 120 }}>
-            <Link to="/cardapio">
-              <img style={{ width: 120 }} src={image_2} />
-            </Link>
-          </div>
-          <div>
-            <Link to="/cardapio">
-              <img src={image_3} />
-            </Link>
-          </div>
-          <div>
-            <Link to="/cardapio">
-              <img src={image_4} />
-            </Link>
-          </div>
-          <div>
-            <Link to="/cardapio">
-              <img src={image_5} />
-            </Link>
-          </div>
+          {image_1 && (
+            <div style={{ width: 120 }}>
+              <Link to="/cardapio">
+                <img style={{ width: 120 }} src={image_1.source_url} />
+              </Link>
+            </div>
+          )}
+          {image_2 && (
+            <div style={{ width: 120 }}>
+              <Link to="/cardapio">
+                <img style={{ width: 120 }} src={image_2.source_url} />
+              </Link>
+            </div>
+          )}
+          {image_3 && (
+            <div>
+              <Link to="/cardapio">
+                <img src={image_3.source_url} />
+              </Link>
+            </div>
+          )}
+          {image_4 && (
+            <div>
+              <Link to="/cardapio">
+                <img src={image_4.source_url} />
+              </Link>
+            </div>
+          )}
+          {image_5 && (
+            <div>
+              <Link to="/cardapio">
+                <img src={image_5.source_url} />
+              </Link>
+            </div>
+          )}
         </Swiper>
       </SwiperContainer>
       <DimWave />
