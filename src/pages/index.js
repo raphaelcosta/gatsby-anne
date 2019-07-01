@@ -72,10 +72,7 @@ const IndexPage = () => (
                   }
                   gallery {
                     title
-                    url {
-                      id
-                      source_url
-                    }
+                    source_url
                   }
                   testimony {
                     title
