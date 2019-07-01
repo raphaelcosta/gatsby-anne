@@ -43,35 +43,35 @@ const VejaMais = ({ title, description, image_1, image_2, image_3, image_4, imag
           {image_1 && (
             <div style={{ width: 120 }}>
               <Link to="/cardapio">
-                <img style={{ width: 120 }} src={image_1.source_url} />
+                <img style={{ width: 120, borderRadius: 6 }} src={image_1.source_url} />
               </Link>
             </div>
           )}
           {image_2 && (
             <div style={{ width: 120 }}>
               <Link to="/cardapio">
-                <img style={{ width: 120 }} src={image_2.source_url} />
+                <img style={{ width: 120, borderRadius: 6 }} src={image_2.source_url} />
               </Link>
             </div>
           )}
           {image_3 && (
             <div style={{ width: 120 }}>
               <Link to="/cardapio">
-                <img style={{ width: 120 }} src={image_3.source_url} />
+                <img style={{ width: 120, borderRadius: 6 }} src={image_3.source_url} />
               </Link>
             </div>
           )}
           {image_4 && (
             <div style={{ width: 120 }}>
               <Link to="/cardapio">
-                <img style={{ width: 120 }} src={image_4.source_url} />
+                <img style={{ width: 120, borderRadius: 6 }} src={image_4.source_url} />
               </Link>
             </div>
           )}
           {image_5 && (
             <div style={{ width: 120 }}>
               <Link to="/cardapio">
-                <img style={{ width: 120 }} src={image_5.source_url} />
+                <img style={{ width: 120, borderRadius: 6 }} src={image_5.source_url} />
               </Link>
             </div>
           )}
