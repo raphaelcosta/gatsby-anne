@@ -94,6 +94,9 @@ const IndexPage = () => (
                     image_4 {
                       source_url
                     }
+                    image_5 {
+                      source_url
+                    }
                   }
                 }
               }
