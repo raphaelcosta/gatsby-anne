@@ -54,7 +54,7 @@ class StoriesComponent extends React.Component {
         }))
       : galleryData.map(media => ({
           ...media,
-          url: media.url.source_url,
+          url: media.source_url,
           header: {
             heading: media.title,
             profileImage:

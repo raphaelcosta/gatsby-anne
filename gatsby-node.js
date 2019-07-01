@@ -86,9 +86,7 @@ exports.createPages = ({ graphql, actions }) => {
                       description
                       media_gallery {
                         title
-                        url {
-                          source_url
-                        }
+                        source_url
                       }
                       products {
                         categories {
