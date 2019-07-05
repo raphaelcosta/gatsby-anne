@@ -82,7 +82,7 @@ const ListElement = styled.dd`
 `;
 const Footer = ({ location, contact, schedule }) => (
   <React.Fragment>
-    <FooterComponent>
+    <FooterComponent id="footer">
       <Container>
         <dl>
           <ListTitle>{location.title}</ListTitle>

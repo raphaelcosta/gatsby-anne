@@ -81,7 +81,7 @@ const HeaderComponent = styled.header`
       &:hover,
       &:focus {
         transition: 0.5s ease;
-        color: rgba(223, 210, 173, 0.50);
+        color: rgba(223, 210, 173, 0.5);
       }
     }
   }
@@ -223,9 +223,9 @@ class Header extends React.Component {
             <Link title="Sobre a Anne" to="/sobre-a-anne">
               Sobre a Anne
             </Link>
-            <Link title="Contato" to="/">
+            <a title="Contato" href="#footer">
               Contato
-            </Link>
+            </a>
           </div>
           <div className="ann-menu-social">
             <a
