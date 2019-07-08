@@ -78,6 +78,7 @@ const IndexPage = () => (
                     title
                     content
                     content_2
+                    content_3
                   }
                   more_section {
                     title

@@ -71,15 +71,14 @@ const StyledCarouselProvider = styled(CarouselProvider)`
 
 const StyledSlide = styled(Slide)`
   height: 100px !important;
-`
+`;
 
-
-const MuitoAmor = ({ title, content, content_2 }) => (
+const MuitoAmor = ({ title, content, content_2, content_3 }) => (
   <React.Fragment>
     <MuitoAmorComponent>
       <Container>
         <h2>{title}</h2>
-        <StyledCarouselProvider naturalSlideWidth={400} naturalSlideHeight={300} totalSlides={2}>
+        <StyledCarouselProvider naturalSlideWidth={400} naturalSlideHeight={300} totalSlides={3}>
           <ArrowButtonBack />
           <StyledSlider>
             <StyledSlide className="ann-text" index={0}>
@@ -87,6 +86,9 @@ const MuitoAmor = ({ title, content, content_2 }) => (
             </StyledSlide>
             <StyledSlide className="ann-text" index={1}>
               {parse(content_2)}
+            </StyledSlide>
+            <StyledSlide className="ann-text" index={1}>
+              {parse(content_3)}
             </StyledSlide>
           </StyledSlider>
           <ArrowButtonNext />
